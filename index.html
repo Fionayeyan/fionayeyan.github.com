@@ -1,17 +1,990 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style type="text/css">
-		div{
-			width: 100px;
-			height: 100px;
-			background: red;
+<meta charset="utf-8">
+<title>MY Web</title>
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<link rel="stylesheet" href="css/base.css">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<style>
+	#fp-nav span, .fp-slidesNav span{
+		border: 1px solid #fff;
+	}
+	#fp-nav li .active span, .fp-slidesNav .active span{
+		background:#fff;
+	}
+	.section1{
+		position:relative;
+	}
+	.section1 .Reaume{
+		width: 100%;
+		text-align: center;
+		color: #fff;
+		font-size: 18px;
+		position: absolute;
+		top: 50%;
+		margin-top: -185px;
+	}
+	.section1 .Reaume .mypho{
+		width:200px;
+		height:200px;
+		border-radius:30px;
+		overflow:hidden;
+		margin:0 auto 30px;
+	}
+	.section1 .Reaume .mypho img{
+		width:100%;
+		height:100%;
+	}
+	.section1 .Reaume span{
+		margin:10px auto;
+		display:block;
+	}
+	.section1 .Reaume h1{
+		width:100px;
+		height:50px;
+		background:#fff;
+		color:#009688;
+		margin:20px auto;
+		font-size:40px;
+	}
+	.section1 .page1-bg1{
+		position: absolute;
+		top: 0;
+		left: 14%;
+	}
+	.section1 .page1-bg5{
+		position:absolute;
+		top:60px;
+		left:0;
+	}
+	.section1 .page1-bg2{
+		position:absolute;
+		bottom:0;
+		left:0;
+	}
+	.section1 .page1-bg3{
+		position: absolute;
+		top: 0;
+		right: 10px;
+	}
+	.section1 .page1-bg4{
+		position: absolute;
+		bottom: -35px;
+		right: 10px;
+	}
+	.section2{
+		background:url(images/bg2.jpg) no-repeat;
+		background-size:100% 100%;
+		position:relative;
+	}
+	.section2 .slide1{
+		position:relative;
+	}
+	.section2 .slide2{
+		position:relative;
+	}
+	.section2 .slide3{
+		position:relative;
+	}
+	.section2  .fp-prev{
+		left: 15px;
+		width:80px;
+		height:150px;
+		border-width:0;
+		background:url(images/icon_l.png) no-repeat;
+		background-size:40px 80px;
+	}
+	.section2 .fp-next{
+		right: 15px;
+		width:80px;
+		height:150px;
+		border-width:0;
+		background:url(images/icon_r.png) no-repeat;
+		background-size:40px 80px;
+	}
+	@font-face {font-family: 'iconfont';
+	src:url(iconfont/iconfont.eot); /* IE9*/
+    src: url(iconfont/iconfont.eot?#iefix) format('embedded-opentype'), /* IE6-IE8 */
+    url(iconfont/iconfont.woff) format('woff'), /* chrome、firefox */
+    url(iconfont/iconfont.ttf) format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url(iconfont/iconfont.svg#iconfont) format('svg'); /* iOS 4.1- */
+}
+	.iconfont{
+		font-family:"iconfont" !important;
+		font-size:16px;font-style:normal;
+		-webkit-font-smoothing: antialiased;
+		-webkit-text-stroke-width: 0.2px;
+		-moz-osx-font-smoothing: grayscale;
+		color:#fff;
+	}
+	.iconfont:hover{
+		color:#23e4a4;
+	}
+	.section2 i{
+		width:100px;
+		height:100px;
+		font-size:70px;
+		line-height:100px;
+	}
+	.section2 .sec_tit{
+		width: 180px;
+		text-align: center;
+		line-height: 50px;
+		height: 50px;
+		font-size: 20px;
+		position: absolute;
+		left: 50%;
+		top: 50px;
+		margin-left: -100px;
+		color:#d34b4d;
+		background:#fff;
+	}
+	.section2 .sec_tit h3{
+		color:#fff;
+		width:300px;
+		position: absolute;
+		left: 50%;
+		top: 50px;
+		margin-left: -150px;
+	}
+	.section2 .projects_list{
+		    width: 91%;
+			position: absolute;
+			left: 9%;
+			top: 50%;
+			margin-top: -110px;
+			opacity: 0;
+	}
+	.section2 .projects_list .projects{
+		width:45%;
+		height:120px;
+		margin:10px 10px;
+	}
+	.section2 .projects_list .projects p{
+		font-size:20px;
+		margin:20px 0 10px 0;
+		font-weight:bold;
+		color:#fff;
+	}
+	.section2 .projects_list .projects p:hover{
+		color:#23e4a4;
+	}
+	.section2 .projects_list .projects span{
+		color:#CCC;
+		width:300px;
+		display:block;
+		margin-top:10px;
+	}
+	.section2 .projects_list .projects strong{
+		color:#fff;
+		background:#999;
+		font-weight:normal;
+		line-height:16px;
+	}
+	.section3 .sec_tit{
+		width: 180px;
+		text-align: center;
+		line-height: 50px;
+		height: 50px;
+		font-size: 20px;
+		position: absolute;
+		left: 50%;
+		top: 50px;
+		margin-left: -100px;
+		color:#000;
+	}
+	.section3 .tech_l{
+		width: 49%;
+		height: 100%;
+		position: absolute;
+		left: 10px;
+		top: 0;
+		background: url(images/bg3.jpg) -430px 0 no-repeat;
+	}
+	.section3 .tech_r{
+		width: 49%;
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background:url(images/bg4.jpeg) repeat;
+		border-left:10px solid #000;
+	}
+	.section3 .skills{
+		width: 500px;
+		height: 200px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-top: -60px;
+		margin-left: -250px;
+	}
+	.section3 .tech_l_con_list{
+		width:100%;
+		height:25%;
+	}
+	.section3 .tech_l_con{
+		padding:3px 5px;
+		height:30px;
+		background:#660;
+		color:#fff;
+		text-align:center;
+		line-height:30px;
+		font-weight:bold;
+		font-size:16px;
+		margin:5px 5px;
+	}
+	.section3 .jq{
+		margin-left:150px;
+		opacity:0.8;
+		filter:alpha(opacity=80); 
+	}
+	.section3 .boot{
+		opacity:0.5;
+		filter:alpha(opacity=50); 
+	}
+	.section3 .html{
+		margin-left:128px;
+	}
+	.section3 .html5{
+		opacity:0.9;
+		filter:alpha(opacity=90); 
+	}
+	.section3 .css3{
+		margin-left:88px;
+		opacity:0.8;
+		filter:alpha(opacity=80); 
+	}
+	.section3 .ps{
+		opacity:0.7;
+		filter:alpha(opacity=70); 
+	}
+	.section3 .sj{
+		margin-left:122px;
+		opacity:0.4;
+		filter:alpha(opacity=40); 
+	}
+	.section3 .nj{
+		opacity:0.4;
+		filter:alpha(opacity=40); 
+	}
+	.section3 .aj{
+		opacity:0.6;
+		filter:alpha(opacity=60); 
+	}
+	.section3 .tech_l_tit,.section3 .tech_r_tit{
+		font-size:20px;
+		margin:50px 0 0 50px;
+	}
+	.section3 .gridtable {
+		font-family: verdana,arial,sans-serif;
+		font-size: 20px;
+		border-collapse: collapse;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-top: -76px;
+		margin-left: -230px;
+	}
+	.section3 .gridtable td {
+		border-width: 3px;
+		width:440px;
+		height:60px;
+		border-style: solid;
+		border-color: #000;
+		padding-left:8px;
+	}
+	.section3 .gridtable tr:hover{
+		background:#FFCB01;
+	}
+	.section4{
+		background:url(images/bg6.jpg) 10px -100px no-repeat;
+		background-size:100% 100%;
+		position:relative;
+	}
+	.section4 .sec_tit{
+		width: 180px;
+		text-align: center;
+		line-height: 50px;
+		height: 50px;
+		font-size: 20px;
+		position: absolute;
+		left: 50%;
+		top: 50px;
+		margin-left: -100px;
+		color:#fff;
+	}
+	.section4 .automatic{ 
+		width: 970px; 
+		height: 344px; 
+		position:absolute; 
+		left:50%;
+		margin-left:-485px; 
+		top:50%; 
+		margin-top:-120px;
+		overflow: -hidden; 
+	}
+	.section4 .prev_div { 
+		width: 130px; 
+		height: 72px; 
+		position: absolute; 
+		top: 128px; 
+		left: 92px; 
+		z-index: 5; 
+		background: red; 
+		filter: alpha(opacity=0); 
+		opacity: 0; 
+		cursor: pointer; 
+	}
+	.section4 .next_div { 
+		width: 130px; 
+		height: 72px; 
+		position: 
+		absolute; 
+		top: 128px; 
+		right: 92px; 
+		z-index: 5; 
+		background: red; 
+		filter: alpha(opacity=0); 
+		opacity: 0; 
+		cursor: pointer; 
+	}
+	.section4 #automatic .prev { 
+		width: 120px; 
+		height: 72px; 
+		position: absolute; 
+		top: 108px; 
+		left: 72px; 
+		z-index: 4; 
+	}
+	.section4 #automatic .prev .ico { 
+		width: 76px; 
+		height: 112px; 
+		position: absolute; 
+		top: 0; 
+		left: 0; 
+		background: url(images/prev.png); 
+	}
+	.section4 #automatic .prev .ico1 { 
+		width: 76px; 
+		height: 112px; 
+		position: absolute; 
+		top: 0; 
+		left: 0; 
+		background: url(images/prev_1.png); 
+		z-index: 2; 
+		filter: alpha(opacity=0); 
+		opacity: 0; 
+	}
+	.section4 #automatic .prev .txt { 
+		width: 106px; 
+		height: 112px; 
+		position: absolute; 
+		top: 0; 
+		left: 65px; 
+		background: url(images/prev_txt.png) no-repeat; 
+		filter: alpha(opacity=0); 
+		opacity: 0; 
+	}
+	.section4 #automatic .next { 
+		width: 120px; 
+		height: 72px; 
+		position: absolute; 
+		top: 108px; 
+		right: 72px; 
+		z-index: 4; 
+	}
+	.section4 #automatic .next .ico { 
+		width: 76px; 
+		height: 112px; 
+		position: absolute; 
+		top: 0; 
+		right: 0; 
+		background: url(images/next.png) no-repeat; 
+	}
+	.section4 #automatic .next .ico1 { 
+		width: 76px; 
+		height: 112px; 
+		position: absolute; 
+		top: 0; 
+		right: 0px; 
+		background: url(images/next_1.png) no-repeat; 
+		z-index: 2; 
+		filter: alpha(opacity=0); 
+		opacity: 0; 
+	}
+	.section4 #automatic .next .txt { 
+		width: 106px; 
+		height: 112px; 
+		position: absolute; 
+		top: 0; 
+		right: 65px; 
+		background: url(images/next_txt.png) no-repeat; 
+		filter: alpha(opacity=0); 
+		opacity: 0; 
+	}
+	.section4 #automatic ul { 
+		width: 970px; 
+		height: 344px; 
+		position: absolute; 
+		top: 10px; 
+		left: 0; 
+		z-index: 1; 
+	}
+	.section4 #automatic li { 
+		position: absolute;
+	}
+	.section4 #automatic li img{
+		border-radius:10px;
+	}
+	.section4 #automatic .line {     
+		border-radius: 10px;
+		box-shadow: 0 0 68px #9E9E9E;
+		width: 680px;
+		height: 312px;
+		position: absolute;
+		top: 10px;
+		left: 50.4%;
+		margin-left: -345px;
+	}
+	.section4 #automatic .pos_0 { 
+		top: -104px; 
+		left: 0; 
+		z-index: 1; 
+		filter: alpha(opacity=0); 
+		opacity: 0; 
+	}
+	.section4 #automatic .pos_1 { 
+		top: 104px; 
+		left: 0; 
+		z-index: 2; 
+		filter: alpha(opacity=60); 
+		opacity: 0.6;
+	}
+	.section4 #automatic .pos_2 { 
+		top: 43px; 
+		left: 50px; 
+		z-index: 3; 
+		filter: alpha(opacity=80); 
+		opacity: 0.8; 
+	}
+	.section4 #automatic .pos_3 { 
+		top: 0; 
+		left: 145px; 
+		z-index: 4;
+	}
+	.section4 #automatic .pos_4 { 
+		top: 43px; 
+		right: 50px; 
+		z-index: 3; 
+		filter: alpha(opacity=80); 
+		opacity: 0.8; 
+	}
+	.section4 #automatic .pos_5 { 
+		top: 104px; 
+		right: 0; 
+		z-index: 2; 
+		filter: alpha(opacity=60); 
+		opacity: 0.6; 
+	}
+	.section4 #automatic .pos_6 { 
+		top: -104px; 
+		right: 0; 
+		z-index: 1; 
+		filter: alpha(opacity=0); 
+		opacity: 0; 
+	}
+	.section5{
+		background:url(images/bg7.jpg) 0 0 no-repeat;
+		background-size:100% 100%;
+		position:relative;
+	}
+	
+</style>
+<script>
+	$(function(){
+    $('#fullpage').fullpage({
+        'verticalCentered': false,
+        'css3': true,
+		'sectionsColor': ['#009688', '#db4c4b', '#ffcb01', '#1d1d1b','#000'],
+        'anchors': ['section1', 'section2', 'section3', 'section4','section5'],
+        'navigation': true,
+        'navigationPosition': 'right',
+		'afterRender':function(){
+			
+		},
+		//滚动到某一屏后的回调函数，接收 anchorLink 和 index 两个参数，anchorLink 是锚链接的名称，index 是序号，从1开始计算
+		'afterLoad': function(anchorLink, index){
+            if(index==1){
+                ;(function(){
+                    var $arr1=$('.section1 .page1-bg1').attr('rel').split(',');
+                    var $arr2=$('.section1 .page1-bg2').attr('rel').split(',');
+                    var $arr3=$('.section1 .page1-bg3').attr('rel').split(',');
+                    var $arr4=$('.section1 .page1-bg4').attr('rel').split(',');
+                    var $arr5=$('.section1 .page1-bg5').attr('rel').split(',');
+                    $('.section1 .page1-bg1').animate({
+                        top:$arr1[1]+'px'
+                    },500);
+                    $('.section1 .page1-bg2').animate({
+                        left:$arr1[1]+'px'
+                    },500);
+                    $('.section1 .page1-bg3').animate({
+                        right:$arr1[1]+'px'
+                    },500);
+                    $('.section1 .page1-bg4').animate({
+                        right:$arr1[1]+'px'
+                    },500);
+                    $('.section1 .page1-bg5').animate({
+                        left:$arr1[1]+'px'
+                    },500);
+                })();
+			}
+			if(index==2){
+				;(function(){
+					$('.projects_list').animate({
+						opacity:1
+					},500);
+				})();
+				;(function(){
+					$('.fp-prev').hover(function(){
+						$('.fp-prev').animate({
+							left:5
+						},500);
+					},function(){
+						$('.fp-prev').animate({
+							left:15
+						},500);	
+					});
+				})();
+				;(function(){
+					$('.fp-next').hover(function(){
+						$('.fp-next').animate({
+							right:5
+						},500);
+					},function(){
+						$('.fp-next').animate({
+							right:15
+						},500);	
+					});
+				})();
+			}
+			if(index==4){
+				function getElementsByClassName(oParent, sClass){
+					var aTmp=oParent.getElementsByTagName('*');
+					var aResult=[];
+					var i=0;
+					
+					for(i=0;i<aTmp.length;i++){
+						if(aTmp[i].className==sClass){
+							aResult.push(aTmp[i]);
+						}
+					}
+					return aResult;
+				}
+				(function(){
+						var oDiv=document.getElementById('automatic');
+						var oPrevMask=getElementsByClassName(oDiv,'prev_div')[0];
+						var oNextMask=getElementsByClassName(oDiv,'next_div')[0];
+						
+						var oPrevBtn=getElementsByClassName(oDiv,'prev')[0];
+						var oNextBtn=getElementsByClassName(oDiv,'next')[0];
+						
+						var oPrevArrow=getElementsByClassName(oPrevBtn,'ico')[0];
+						var oPrevArrowLight=getElementsByClassName(oPrevBtn,'ico1')[0];
+						var oPrevTxt=getElementsByClassName(oPrevBtn,'txt')[0];
+						
+						var oNextArrow=getElementsByClassName(oNextBtn,'ico')[0];
+						var oNextArrowLight=getElementsByClassName(oNextBtn,'ico1')[0];
+						var oNextTxt=getElementsByClassName(oNextBtn,'txt')[0];
+						
+						oPrevArrow.alpha=100;
+						var iInitPrevArrow=oPrevArrow.left=oPrevArrow.offsetLeft;
+						oPrevArrowLight.alpha=0;
+						var iInitPrevArrowLight=oPrevArrowLight.left=oPrevArrowLight.offsetLeft;
+						oPrevTxt.alpha=0;
+						var iInitPrevTxt=oPrevTxt.left=oPrevTxt.offsetLeft;
+						
+						oNextArrow.alpha=100;
+						var iInitNextArrow=oNextArrow.left=oNextArrow.offsetLeft;
+						oNextArrowLight.alpha=0;
+						var iInitNextArrowLight=oNextArrowLight.left=oNextArrowLight.offsetLeft;
+						oNextTxt.alpha=0;
+						var iInitNextTxt=oNextTxt.left=oNextTxt.offsetLeft;
+						
+						var aLi=oDiv.getElementsByTagName('ul')[0].getElementsByTagName('li');
+						
+						var aLiInit=[];
+						
+						var oLine=getElementsByClassName(oDiv, 'line')[0];
+						
+						var iInterval=150;
+						
+						
+						var i=0;
+						
+						for(i=0;i<aLi.length;i++){
+							aLiInit[i]={};
+							aLi[i].width=aLiInit[i].w=aLi[i].getElementsByTagName('img')[0].offsetWidth;
+							aLi[i].height=aLiInit[i].h=aLi[i].getElementsByTagName('img')[0].offsetHeight;
+							aLi[i].left=aLiInit[i].l=aLi[i].offsetLeft;
+							aLi[i].top=aLiInit[i].t=aLi[i].offsetTop;
+							aLi[i].alpha=aLiInit[i].alpha=0;
+							aLi[i].z=aLiInit[i].z=1;
+						}
+						
+						for(i=0;i<aLi.length;i++){
+							aLi[i].style.position='absolute';
+							aLi[i].style.left=aLiInit[i].l+'px';
+							aLi[i].style.top=aLiInit[i].t+'px';
+						}
+						
+						aLi[1].alpha=aLiInit[1].alpha=60;
+						aLi[2].alpha=aLiInit[2].alpha=80;
+						aLi[3].alpha=aLiInit[3].alpha=100;
+						aLi[4].alpha=aLiInit[4].alpha=80;
+						aLi[5].alpha=aLiInit[5].alpha=60;
+						
+						aLi[1].z=aLiInit[1].z=2;
+						aLi[2].z=aLiInit[2].z=3;
+						aLi[3].z=aLiInit[3].z=4;
+						aLi[4].z=aLiInit[4].z=3;
+						aLi[5].z=aLiInit[5].z=2;
+						
+						
+						oPrevMask.onmouseover=function (){
+							startMove(oPrevArrow, {left: iInitPrevArrow+10}, iInterval);
+							startMove(oPrevArrowLight, {left: iInitPrevArrowLight+10, alpha:100}, iInterval);
+							startMove(oPrevTxt, {left: iInitPrevTxt-10, alpha:100}, iInterval);
+						};
+						
+						oPrevMask.onmouseout=function (){
+							
+							startMove(oPrevArrow, {left: iInitPrevArrow}, iInterval);
+							startMove(oPrevArrowLight, {left: iInitPrevArrowLight, alpha:0}, iInterval);
+							startMove(oPrevTxt, {left: iInitPrevTxt, alpha:0}, iInterval);
+						};
+						
+						oPrevMask.onmousedown=function (){
+							gotoImg(true);
+						};
+						
+						oNextMask.onmouseover=function (){
+							startMove(oNextArrow, {left: iInitNextArrow-10}, iInterval);
+							startMove(oNextArrowLight, {left: iInitNextArrowLight-10, alpha:100}, iInterval);
+							startMove(oNextTxt, {left: iInitNextTxt+10, alpha:100}, iInterval);
+						};
+						
+						oNextMask.onmouseout=function (){
+							startMove(oNextArrow, {left: iInitNextArrow}, iInterval);
+							startMove(oNextArrowLight, {left: iInitNextArrowLight, alpha:0}, iInterval);
+							startMove(oNextTxt, {left: iInitNextTxt, alpha:0}, iInterval);
+						};
+						
+						oNextMask.onmousedown=function (){
+							gotoImg(false);
+						};
+						
+						function gotoImg(bLeft){
+							if(bLeft){
+								aLiInit.push(aLiInit.shift());
+							}else{
+								aLiInit.unshift(aLiInit.pop());
+							}
+							
+							oLine.style.display='none';
+							
+							for(i=0;i<aLi.length;i++){
+								startMove(aLi[i], {left: aLiInit[i].l, top: aLiInit[i].t, width: aLiInit[i].w, height:aLiInit[i].h, alpha:aLiInit[i].alpha, zIndex:aLiInit[i].z}, 300, function (){oLine.style.display='block';});
+							}
+						};
+					})();
+					
+					function startMove(obj, oParams, iTime, fnCallBackEnd){
+						var iInterval=45;
+						var iEndTime=(new Date()).getTime()+iTime;
+						var iTimes=Math.ceil(iTime/iInterval);
+						var oSpeed={};
+						
+						if(typeof obj.timer=='undefined'){
+							obj.timer=null;
+						}
+						
+						for(key in oParams){
+							oSpeed[key]=(oParams[key]-obj[key])/iTimes;
+						}
+						
+						if(obj.timer){
+							clearInterval(obj.timer);
+						}
+						obj.timer=setInterval(
+							function (){
+								doMove(obj, oParams, oSpeed, iEndTime, fnCallBackEnd);
+							}, iInterval
+						);
+					}
+					
+					function doMove(obj, oTarget, oSpeed, iEndTime, fnCallBackEnd){
+						var iNow=(new Date()).getTime();
+						
+						if(iNow>=iEndTime){
+							clearInterval(obj.timer);
+							obj.timer=null;
+							
+							for(key in oTarget){
+								obj[key]=oTarget[key];
+								switch(key){
+									case 'alpha':
+										obj.style.opacity=oTarget[key]/100;
+										obj.style.filter="alpha(opacity:"+oTarget[key]+")";
+										break;
+									case 'zIndex':
+										obj.style.zIndex=oTarget[key];
+										break;
+									case 'width':
+									case 'height':
+										obj.getElementsByTagName('img')[0].style[key]=oTarget[key]+'px';
+										break;
+									default:
+										obj.style[key]=oTarget[key]+'px';
+										break;
+								}
+							}
+							
+							if(fnCallBackEnd){
+								fnCallBackEnd();
+							}
+						}
+						else{
+							for(key in oTarget){
+								obj[key]+=oSpeed[key];
+								switch(key){
+									case 'alpha':
+										obj.style.opacity=obj[key]/100;
+										obj.style.filter="alpha(opacity:"+obj[key]+")";
+										break;
+									case 'zIndex':
+										obj.style.zIndex=oTarget[key];
+										break;
+									case 'width':
+									case 'height':
+										obj.getElementsByTagName('img')[0].style[key]=obj[key]+'px';
+										break;
+									default:
+										obj.style[key]=obj[key]+'px';
+										break;
+								}
+							}
+						}
+				}
+
+			}
+		},
+		'onLeave': function(index, nextIndex, direction){
+            if(index==1){
+                ;(function(){
+					var $arr1=$('.section1 .page1-bg1').attr('rel').split(',');
+					var $arr2=$('.section1 .page1-bg2').attr('rel').split(',');
+					var $arr3=$('.section1 .page1-bg3').attr('rel').split(',');
+					var $arr4=$('.section1 .page1-bg4').attr('rel').split(',');
+					var $arr5=$('.section1 .page1-bg5').attr('rel').split(',');
+					$('.section1 .page1-bg1').animate({
+						top:$arr1[0]+'px'
+					},500);
+					$('.section1 .page1-bg2').animate({
+						left:$arr1[0]+'px'
+					},500);
+					$('.section1 .page1-bg3').animate({
+						right:$arr1[0]+'px'
+					},500);
+					$('.section1 .page1-bg4').animate({
+						right:$arr1[0]+'px'
+					},500);
+					$('.section1 .page1-bg5').animate({
+						left:$arr1[0]+'px'
+					},500);
+				 })();
+            }
+			if(index==2){
+				;(function(){
+					$('.projects_list').animate({
+						opacity:0
+					},500);
+				})();
+			}
+			
 		}
-	</style>
+    });
+});
+</script>
 </head>
+
 <body>
-	<div></div>
+	<div id="fullpage">
+        <div class="section section1">
+            <div class="Reaume">
+                <div  class="mypho">
+                    <img src="images/mypho.jpg">
+                </div>
+                <h1>叶&nbsp;艳</h1>
+                <span>一腔热血的激情，一夜失眠的创意，一个像素的执着</span>
+                <h2>网站前端工程师</h2>
+            </div>
+            <div class="page1-bg1" rel="-259,0"><img src="images/page1-bg1.png" /></div>
+            <div class="page1-bg2" rel="-251,0"><img src="images/page1-bg2.png" /></div>
+            <div class="page1-bg3" rel="-496,10"><img src="images/page1-bg3.png" /></div>
+            <div class="page1-bg4" rel="-442,10"><img src="images/page1-bg4.png" /></div>
+            <div class="page1-bg5" rel="-184,0"><img src="images/page1-bg5.png" /></div>
+         </div>
+        <div class="section section2">
+            <div class="slide slide1">
+            	<div class="sec_tit">
+                	<h1>项目经历</h1><br/>
+                    <h3>PROJECT EXPERIENCE</h3>
+                </div>
+                <ul class="projects_list clearfix">
+                	<li class="projects htcdq fl clearfix">
+                    	<i class="iconfont fl">&#xe611;</i>
+                        <div class="fl">
+                            <a href="javascript:;"><p>HTC 周年店庆</p></a>
+                            <a href="javascript:;"><strong>HTML + CSS + jQuery</strong></a><br/>
+                            <a href="javascript:;"><span>为网上商城定制独立的活动页面，包含抽奖、倒计时等特效，运用了jQuery的downCount插件。</span></a>
+                        </div>
+                    </li>
+                    <li class="projects xcxd fl clearfix">
+                    	<i class="iconfont fl">&#xe62f;</i>
+                        <div class="fl">
+                            <a href="http://www.ec3s.com/"><p>XCXD 官网改版</p></a>
+                            <a href="javascript:;"><strong>HTML + CSS + jQuery</strong></a><br/>
+                            <a href="javascript:;"><span>与XCXD团队协作，负责开发官网改版的页面动态效果部分。</span></a>
+                        </div>
+                    </li>
+                    <li class="projects vive fl clearfix">
+                    	<i class="iconfont fl">&#xe652;</i>
+                        <div class="fl">
+                            <a href="javascript:;"><p>VIVE 自动回复邮件</p></a>
+                            <a href="javascript:;"><strong>HTML + CSS</strong></a><br/>
+                            <a href="javascript:;"><span>根据客户提供的word文档，将其制作成html表单格式。</span></a>
+                        </div>
+                    </li>
+                    <li class="projects mini fl clearfix">
+                    	<i class="iconfont fl">&#xe668;</i>
+                        <div class="fl">
+                            <a href="javascript:;"><p>MINI 官网改版方案</p></a>
+                            <a href="javascript:;"><strong>PhotoShop+HTML + CSS + jQuery</strong></a><br/>
+                            <a href="javascript:;"><span>为htc官网制作周年庆活动页</span></a>
+                        </div>
+                    </li>
+                    <li class="projects lorr fl clearfix">
+                    	<i class="iconfont fl">&#xe79a;</i>
+                       <div class="fl">
+                            <a href="http://eshop.htc.com/webapp/wcs/stores/servlet/HCoinLotteryView?catalogId=10001&storeId=10001&langId=-7&position=Nav3"><p>HTC 幸运大抽奖</p></a>
+                            <a href="javascript:;"><span>为htc官网制作周年庆活动页</span></a>
+                        </div>
+                    </li>
+                    <li class="projects sale fl clearfix">
+                    	<i class="iconfont fl">&#xe619;</i>
+                        <div class="fl">
+                            <a href="http://eshop.htc.com/fsbs/fsbs-pc.html?position=Nav2"><p>HTC 逢双必杀</p></a>
+                            <a href="javascript:;"><span>为htc官网制作周年庆活动页</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="slide slide2">
+            	<div class="sec_tit">
+                	<h1>工作经验</h1><br/>
+                    <h3>JOB EXPERIENCE</h3>
+                </div>
+           </div>
+            <div class="slide slide3">
+            	<div class="sec_tit">
+                	<h1>工作日志</h1><br/>
+                    <h3>JOB LOG</h3>
+                </div>
+            </div>
+        </div>
+        <div class="section section3">
+       	    <div class="tech_l">
+           	<div class="tech_l_tit">
+                <h1>我的硬件</h1>
+                <h3>MY SKILLS</h3>
+             </div>
+             <div class="skills">
+                <ul class="tech_l_con_list clearfix">
+                    <li class="tech_l_con jq fl">jQuery框架</li>
+                    <li class="tech_l_con boot fl">BootStrap</li>
+                </ul>
+                <ul class="tech_l_con_list clearfix">
+                    <li class="tech_l_con css3 fl">CSS3</li>
+                    <li class="tech_l_con ps fl">图像处理PhotoShop</li>
+                    <li class="tech_l_con html5 fl">HTML5</li>
+                </ul>	
+                <ul class="tech_l_con_list clearfix">
+                    <li class="tech_l_con html fl">HTML</li>
+                    <li class="tech_l_con css fl">CSS</li>
+                    <li class="tech_l_con js fl">原生JavaScript</li>
+                </ul>	
+                 <ul class="tech_l_con_list clearfix">
+                    <li class="tech_l_con sj fl">Seajs模块化</li>
+                    <li class="tech_l_con nj fl">Nodejs</li>
+                    <li class="tech_l_con aj fl">Angularjs</li>
+                </ul>	
+             </div>
+            </div>
+            <div class="tech_r">
+            	<div class="tech_r_tit">
+                	<h1>我的软件</h1>
+                    <h3>MY CHARACTER</h3>
+                </div>
+                <table class="gridtable">
+                    <tr>
+                        <td>√有良好的主动性，沟通能力和团队协作能力</td>
+                    </tr>
+                    <tr>
+                        <td>√喜欢学习新事物，独立思考能力</td>
+                    </tr>
+                    <tr>
+                        <td>√乐于研究各种js效果，与网页视觉结合</td>
+                    </tr>
+                    <tr>
+                        <td>√对生活和工作充满热情与感恩</td>
+                    </tr>
+				</table>
+            </div>
+        </div>
+        <div class="section section4">
+        	<div class="sec_tit">
+                <h1>我的作品</h1>
+                <h3>MY WORKS</h3>
+             </div>
+        	<div id="automatic" class="automatic">
+                <div class="prev_div"></div>
+                <a class="prev" href="###">
+                    <span class="ico1"></span>
+                    <span class="ico"></span>
+                    <span class="txt"></span>
+                </a>
+                 <div class="next_div"></div>
+                <a class="next" href="###">
+                    <span class="ico1"></span>
+                    <span class="ico"></span>
+                    <span class="txt"></span>
+                </a>
+            	<div class="line"></div>
+            	<ul>
+                   <li class="pos_0"><a href="https://www.baidu.com/"><img src="images/img4.png" width="100"/></a></li>
+                    <li class="pos_1"><a href="https://www.baidu.com/"><img src="images/img5.png" width="270"/></a></li>
+                    <li class="pos_2"><a href="javascript:;"><img src="images/img6.png" width="510"/></a></li>
+                    <li class="pos_3"><a href="https://www.baidu.com/"><img src="images/img1.jpg" width="680"/></a></li>
+                    <li class="pos_4"><a href="javascript:;"><img src="images/img2.png" width="510"/></a></li>
+                    <li class="pos_5"><a href="javascript:;"><img src="images/img3.png" width="270"/></a></li>
+                </ul>
+            </div>
+		</div>
+        <div class="section section5">请联系我</div>
+    </div>
 </body>
 </html>
