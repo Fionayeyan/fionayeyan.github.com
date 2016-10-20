@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MINI 官网</title>
+<link rel="shortcut icon" href="images/car.png"/>
+<link rel="stylesheet" href="base.css"/>
+<script src="move_all.js"></script>
+<style>
+	/*banner*/
+	.banner{
+		width:100%;
+		height:600px;
+		position:relative;
+	}
+	.banner ul{
+		height:650px;
+		position:relative;
+		overflow:hidden;
+	}
+	.banner .item{
+		width:1280px;
+		height:600px;
+		position:absolute;
+		left:1280px;
+		float:left;
+	}
+	.banner_img{
+		width:1280px;
+	}
+	.banner_img img{
+		width:100%;
+		height:100%;
+	}
+	.con{
+		position:absolute;
+		left:5%;
+		top:5%;
+		font-size:25px;
+		z-index:10;
+		text-align:center;
+	}
+	.con hr{
+		width:20%;
+		margin:5px auto;
+	}
+	.con .banner_l_title{
+		font-size:20px;
+	}
+	.con .banner_title{
+		font-size:35px;
+		margin:10px;
+		font-weight:bold;
+	}
+	.con .banner_style{
+		font-size:25px;
+	}
+	.con .banner_link a{
+		font-size:20px;
+		margin:10px;
+	}
+	.icon{
+		width:160px;
+		height:20px;
+		position:absolute;
+		left:50%;
+		bottom:3%;
+		margin-left:-100px;
+		text-align:center;
+	}
+	.icon li{
+		width:20px;
+		height:20px;
+		margin:10px;
+		float:left;
+		position:relative;
+	}
+	.icon .icon_mini{
+		width:10px;
+		height:10px;
+		opacity:0.5;
+		background:#000;
+		border-radius:50%;
+		display:block;
+		position:absolute;
+		left:50%;
+		top:50%;
+		margin-left:-5px;
+		margin-top:-5px;
+	}
+	.icon li .active{
+		box-shadow:0 0 10px #666;
+	}
+
+</style>
+<script>
+function getByClass(obj,sClass){
+	if(obj.getElementsByClassName){
+		return obj.getElementsByClassName(sClass);
+	}
+	var aResult=[];
+	var aEle=obj.getElementsByTagName('*');
+	var re=new RegExp('\\b'+sClass+'\\b');
+	for(var i=0; i<aEle.length; i++){
+		if(aEle[i].className.search(re)!=-1){
+			aResult.push(aEle[i]);
+		}
+	}
+	return aResult;
+}
+
+window.onload = function(){
+	//banner
+	(function(){
+		var oBanner = document.getElementById('banner');
+		var aLi = getByClass(oBanner,'item');
+		var aBtn = getByClass(oBanner,'icon_mini');
+		var iNow=0;
+	
+		aLi[0].style.left=0;
+		aBtn[0].style.opacity=1;
+		function next(){
+			move(aLi[iNow],{left:-1280});
+			move(aBtn[iNow],{opacity:0.5,width:10,height:10,marginLeft:-5,marginTop:-5});
+			aBtn[iNow].className = 'icon_mini';
+			iNow++;
+			if(iNow==aLi.length)iNow=0;
+			aLi[iNow].style.left=1280+'px';
+			move(aLi[iNow],{left:0});
+			move(aBtn[iNow],{opacity:1,width:20,height:20,marginLeft:-10,marginTop:-10});
+			aBtn[iNow].className = 'icon_mini active';
+		}
+		function prev(){
+			move(aLi[iNow],{left:1280});
+			move(aBtn[iNow],{opacity:0.5,width:10,height:10,marginLeft:-5,marginTop:-5});
+			aBtn[iNow].className = 'icon_mini';
+			iNow--;
+			if(iNow<0)iNow=aLi.length-1;
+			aLi[iNow].style.left=-1280+'px';
+			move(aLi[iNow],{left:0});
+			move(aBtn[iNow],{opacity:1,width:20,height:20,marginLeft:-10,marginTop:-10});
+			aBtn[iNow].className = 'icon_mini active';
+		}
+		timer=setInterval(next,1500);
+		oBanner.onmouseover=function(){
+			clearInterval(timer);
+		};
+		oBanner.onmouseout=function(){
+			timer=setInterval(next,2000);
+		};
+		for(var i=0; i<aBtn.length; i++){
+			(function (index){
+				aBtn[i].onmouseover=function (){
+					if(index<iNow){//从右往左
+						move(aLi[iNow],{left:1280});
+						move(aBtn[iNow],{opacity:0.5,width:10,height:10,marginLeft:-5,marginTop:-5});
+						aLi[index].style.left=-1280+'px';
+						aBtn[iNow].className = 'icon_mini';
+						move(aLi[index],{left:0});
+						move(aBtn[index],{opacity:1,width:20,height:20,marginLeft:-10,marginTop:-10});
+						aBtn[index].className = 'icon_mini active';
+					}else{//从左往右
+						move(aLi[iNow],{left:-1280});
+						move(aBtn[iNow],{opacity:0.5,width:10,height:10,marginLeft:-5,marginTop:-5});
+						aBtn[iNow].className = 'icon_mini';
+						aLi[index].style.left=1280+'px';
+						move(aLi[index],{left:0});
+						move(aBtn[index],{opacity:1,width:20,height:20,marginLeft:-10,marginTop:-10});
+						aBtn[index].className = 'icon_mini active';
+					}
+					iNow=index;
+				};
+			})(i);
+		}
+	})();
+};
+</script>
+</head>
+
+<body>
+    <!--banner-->
+    	<div id="banner" class="banner">
+    	<ul>
+        	<li class="item">
+                <a class="banner_img fl" href="javascript:;"><img src="images/banner_01.jpg"/></a>
+                <div class="con">
+                    <span class="banner_l_title">井柏然 阮经天 秦昊 杨祐宁</span>
+                    <p class="banner_title">与新一代MINI CLUBMAN。</p>
+                    <hr/>
+                    <span class="banner_style">用影像定义新绅士</span><br/>
+                    <span class="banner_link"><a href="javascript:;">了解详情&gt;</a><a href="javascript:;">了解车型&gt;</a></span>
+                </div>
+            </li>
+            <li class="item">
+                <a class="banner_img fl" href="javascript:;"><img src="images/banner_03.jpg"/></a>
+                <div class="con">
+                    <p class="banner_title">MINI COUNTRYMAN装备控。</p>
+                    <hr/>
+                    <span class="banner_style">限量上市</span><br/>
+                    <span class="banner_link"><a href="javascript:;">了解详情&gt;</a></span>
+                </div>
+            </li>
+            <li class="item">
+                <a class="banner_img fl" href="javascript:;"><img src="images/banner_07.jpg"/></a>
+                <div class="con" style="color:#fff;">
+                    <p class="banner_title">经典MINI特别版SEVEN。</p>
+                    <hr/>
+                    <span class="banner_style">建议零售价：￥285,000-351,000</span><br/>
+                    <span class="banner_link"><a href="javascript:;" style="color:#fff;">了解详情&gt;</a></span>
+                </div>
+            </li>
+            <li class="item">
+                <a class="banner_img fl" href="javascript:;"><img src="images/banner_00.jpg"/></a>
+                <div class="con">
+                    <p class="banner_title">每辆MINI因我而变。</p>
+                    <hr/>
+                    <span class="banner_style">MINI VISION NEXT 100 概念车</span><br/>
+                    <span class="banner_link"><a href="javascript:;">了解详情&gt;</a></span>
+                </div>
+            </li>
+        </ul>
+        <ol class="icon">
+        	<li ><span class="icon_mini active"></span></li>
+           <li ><span class="icon_mini"></span></li>
+           <li ><span class="icon_mini"></span></li>
+           <li ><span class="icon_mini"></span></li>
+        </ol>
+    </div>
+</body>
+</html>

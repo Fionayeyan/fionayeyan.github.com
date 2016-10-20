@@ -4,1101 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=1.0,maximum-scale=1.0" >
 <title>MY Web</title>
+<link rel="shortcut icon" href="images/sec_5.png" />
 <link rel="stylesheet" href="css/jquery.fullPage.css">
 <link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/index.css" />
 <script src="js/jquery-1.8.3.min.js"></script>
 <script src="js/jquery.easing.js"></script>
 <script src="js/jquery.fullPage.min.js"></script>
-<style>
-	#fp-nav span, .fp-slidesNav span{
-		border: 1px solid #fff;
-	}
-	#fp-nav li .active span, .fp-slidesNav .active span{
-		background:#fff;
-	}
-	.section1{
-		position:relative;
-		overflow:hidden;
-	}
-	.section1 .sec1_bg{
-		width:100%;
-		height:100%;
-		transition:1s all ease-out;
-	}
-	.sec1_bg_l,.sec1_bg_r{
-		transition:3s all ease-out;
-		-webkit-transition:3s all ease-out;
-		-ms-transition:3s all ease-out;
-		-o-transition:3s all ease-out;
-		-moz-transition:3s all ease-out;
-		width:35%;
-		height:100%;
-	}
-	.section1 .sec1_bg_l{
-		background:url(images/sec1_bg_l.jpg) repeat-y;
-		box-shadow:0 0 40px #8b9219;
-	}
-	.section1 .sec1_bg_r{
-		background:#000;
-		box-shadow:0 0 40px #000;
-	}
-	.section1 .sec1-opa{
-		width:100%;
-		height:300px;
-		background:rgba(255,255,255,.2);
-		position:absolute;
-		top:-300px;
-		left:0;
-	}
-	.section1 .Reaume{
-		width: 300px;
-		background:url(images/sec1_bg_l.jpg) no-repeat;
-		color:rgba(0,0,0,0);
-		-webkit-background-clip:text;
-		font-size: 18px;
-		font-weight:bold;
-		position: absolute;
-		top: 50%;
-		left:50%;
-		margin-left:-150px;
-		margin-top: -185px;
-		text-align:center;
-		z-index:1;
-		opacity:0;
-	}
-	.section1 .Reaume .mypho{
-		width:200px;
-		height:200px;
-		border-radius:30px;
-		overflow:hidden;
-		margin:0 auto 30px;
-	}
-	.section1 .Reaume .mypho img{
-		width:100%;
-		height:100%;
-	}
-	.section1 .Reaume span{
-		margin:10px auto;
-		display:block;
-	}
-	.section1 .Reaume h1{
-		width:100px;
-		height:50px;
-		color:#fff;
-		background:url(images/sec1_bg_l.jpg) no-repeat;
-		color:#fff;
-		-webkit-background-clip:border;
-		margin:20px auto;
-		font-size:40px;
-	}
-	.section2{
-		background: url(images/bg2.jpg) right 0 no-repeat;
-		position:relative;
-	}
-	.section2 .slide1{
-		position:relative;
-	}
-	.section2 .slide2{
-		position:relative;
-	}
-	.section2 .slide3{
-		position:relative;
-	}
-	.section2  .fp-prev{
-		top:75px;
-		left: 10%;
-		width:80px;
-		height:70px;
-		border-width:0;
-		background:url(images/icon_l.png) no-repeat;
-		background-size:40px 80px;
-	}
-	.section2 .fp-next{
-		top:80px;
-		right: 10%;
-		width:80px;
-		height:70px;
-		border-width:0;
-		background:url(images/icon_r.png) no-repeat;
-		background-size:40px 80px;
-	}
-	@font-face {font-family: 'iconfont';
-	src:url(iconfont/iconfont.eot); /* IE9*/
-    src: url(iconfont/iconfont.eot?#iefix) format('embedded-opentype'), /* IE6-IE8 */
-    url(iconfont/iconfont.woff) format('woff'), /* chrome、firefox */
-    url(iconfont/iconfont.ttf) format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url(iconfont/iconfont.svg#iconfont) format('svg'); /* iOS 4.1- */
-}
-	.iconfont{
-		font-family:"iconfont" !important;
-		font-size:16px;font-style:normal;
-		-webkit-font-smoothing: antialiased;
-		-webkit-text-stroke-width: 0.2px;
-		-moz-osx-font-smoothing: grayscale;
-		color:#fff;
-	}
-	.iconfont:hover{
-		color:#edff66;
-	}
-	.section2 i{
-		width:100px;
-		height:100px;
-		font-size:70px;
-		line-height:190px;
-	}
-	.section2 .sec_tit{
-		width: 180px;
-		text-align: center;
-		line-height: 50px;
-		height: 50px;
-		font-size: 20px;
-		position: absolute;
-		left: 50%;
-		top: 50px;
-		margin-left: -100px;
-		color:#000;
-		border-bottom:5px solid #090;
-	}
-	.section2 .sec_tit h3{
-		color:#fff;
-		width:300px;
-		position: absolute;
-		left: 50%;
-		top: 50px;
-		margin-left: -150px;
-	}
-	.section2 .projects_list{
-		width: 91%;
-		position: absolute;
-		left: 9%;
-		top: 50%;
-		margin-top: -150px;
-	}
-	.section2 .projects_list .projects{
-		width: 295px;
-		height: 170px;
-		margin: 10px 10px;
-		background: rgba(0,0,0,.5);
-		padding: 0 10px;
-		opacity: 0;
-		border-left: 5px solid #090;
-		position: relative;
-		overflow: hidden;
-		border-radius: 10px;
-	}
-
-	.section2 .projects_list .projects .through{
-		width:100%;
-		height:100%;
-		background:rgba(113, 157, 15,.8);
-		position:absolute;
-		left:0;
-		top:-170px;
-		text-align:center;
-		line-height:80px;
-		z-index:5;
-	}
-	
-	.section2 .projects_list .projects strong{
-		color:#fff;
-		font-size:18px;
-	}
-	.section2 .projects_list .projects .thr_in{
-		width: 80px;
-		height: 30px;
-		background: #FF3;
-		position: absolute;
-		bottom: 40px;
-		left: 100px;
-		line-height: 30px;
-		color: #fff;
-	}
-	.pro_con{
-		width: 57%;
-		height: 100%;
-		position: absolute;
-		left: 103px;
-		top: 10px;
-		padding-right: 10px;
-	}
-	.section2 .projects_list .projects p{
-		font-size:20px;
-		margin:20px 0 10px 0;
-		font-weight:bold;
-		color:#fff;
-	}
-	.section2 .projects_list .projects span{
-		color:#CCC;
-		width:100%;
-		display:block;
-		margin-top:10px;
-	}
-	.section3 .lar{
-		width:80px;
-		height:80px;
-		background:url(images/ladybird.png) no-repeat;
-		background-size:100% 100%;
-		position:absolute;
-		left:50%;
-		bottom:10px;
-		margin-left:-40px;
-		z-index:9;
-		transition:1s all linear 1s;
-	}
-	.section3 .sec_tit{
-		width: 180px;
-		text-align: center;
-		line-height: 50px;
-		height: 50px;
-		font-size: 20px;
-		position: absolute;
-		left: 50%;
-		top: 50px;
-		margin-left: -100px;
-		color:#000;
-	}
-	.section3 .tech_l .tech_l_tit,.tech_r_tit{
-		position:relative;
-		z-index:2;
-	}
-	.section3 .tech_l .tech_l_tit{
-		color:#fff;
-	}
-	.section3 .tech_l_bg,.tech_r_bg{
-		width: 240px;
-		height: 26px;
-		background: #090;
-		position: absolute;
-		left: -240px;
-		top: 105px;
-	}
-	.section3 .tech_l{
-		width: 49%;
-		height: 100%;
-		position: absolute;
-		left: 10px;
-		top: 0;
-		overflow:hidden;
-	}
-	.section3 .tech_r{
-		width: 49%;
-		height: 100%;
-		position: absolute;
-		right: 0;
-		top: 0;
-		border-left:10px solid #000;
-		background: url(images/bg3.jpg)0 0 no-repeat;
-		background-size:100% 100%;
-		overflow:hidden;
-	}
-	.section3 .skills{
-		width: 500px;
-		height: 200px;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		margin-top: -60px;
-		margin-left: -250px;
-	}
-	.section3 .tech_l_con_list{
-		width:100%;
-		height:25%;
-	}
-	.section3 .tech_l_con{
-		padding:3px 5px;
-		height:30px;
-		background:#67BE25;
-		color:#fff;
-		text-align:center;
-		line-height:30px;
-		font-weight:bold;
-		font-size:16px;
-		margin:5px 5px;
-	}
-	.section3 .jq{
-		margin-left:150px;
-		opacity:0.8;
-		filter:alpha(opacity=80); 
-	}
-	.section3 .boot{
-		opacity:0.5;
-		filter:alpha(opacity=50); 
-	}
-	.section3 .html{
-		margin-left:128px;
-	}
-	.section3 .html5{
-		opacity:0.9;
-		filter:alpha(opacity=90); 
-	}
-	.section3 .css3{
-		margin-left:88px;
-		opacity:0.8;
-		filter:alpha(opacity=80); 
-	}
-	.section3 .ps{
-		opacity:0.7;
-		filter:alpha(opacity=70); 
-	}
-	.section3 .sj{
-		margin-left:122px;
-		opacity:0.4;
-		filter:alpha(opacity=40); 
-	}
-	.section3 .nj{
-		opacity:0.4;
-		filter:alpha(opacity=40); 
-	}
-	.section3 .aj{
-		opacity:0.6;
-		filter:alpha(opacity=60); 
-	}
-	.section3 .tech_l_tit,.section3 .tech_r_tit{
-		font-size:20px;
-		margin:50px 0 0 50px;
-	}
-	.section3 .gridtable {
-		font-size: 20px;
-		border-collapse: collapse;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		margin-top: -76px;
-		margin-left: -230px;
-		background:rgba(51,51,51,.5);
-	}
-	.section3 .gridtable td {
-		border-width: 3px;
-		width:440px;
-		height:60px;
-		font-weight:bold;
-		border-style: solid;
-		border-color: #000;
-		padding-left:8px;
-	}
-	.section3 .gridtable tr:hover{
-		background:#FFCB01;
-	}
-	#tagscloud{width:300px;height:300px;position:relative;font-size:12px;color:#333;margin:20px auto 0;text-align:center;}
-#tagscloud a{position:absolute;top:0px;left:0px;color:#333;font-family:Arial;text-decoration:none;}
-#tagscloud a:hover{color:#fff;padding:5px;display:block;background:#D02F53;}
-#tagscloud a.tagc1{margin:0 10px 15px 0;line-height:22px;width:120px;text-align:center;font-size:16px;padding:1px 5px;white-space:nowrap;display:inline-block;border-radius:3px;background:#060;color:#fff;}
-#tagscloud a.tagc2{margin:0 10px 15px 0;line-height:22px;width:90px;text-align:center;font-size:16px;padding:1px 5px;white-space:nowrap;display:inline-block;border-radius:3px;background:#0C6;color:#fff;}
-#tagscloud a.tagc5{margin:0 10px 15px 0;line-height:22px;width:100px;text-align:center;font-size:16px;padding:1px 5px;white-space:nowrap;display:inline-block;border-radius:3px;background:#6F0;color:#fff;}
-	.section4{
-		position:relative;
-	}
-	.section4 .work_des{
-		width:42%;
-		height:400px;
-		position:absolute;
-		left:5%;
-		top:20%;
-	}
-	.section4 .sec_tit {
-		height: 300px;
-		font-size: 81px;
-		font-weight: bold;
-		color: rgb(23, 100, 28);
-		position: absolute;
-		left: 32px;
-		top: 50%;
-		margin-top: 100px;
-	}
-	.work_des .sec4_con{
-		width:100%;
-		height:100%;
-		color:#666;
-		text-align:center;
-	}
-	.sec4_con_list{
-		width:100%;
-		height:50%;
-		border: 5px solid rgb(23, 100, 28);
-		position:relative;
-	}
-	.con_list{
-		width:100%;
-		height:100%;
-		position:absolute;
-		left:0;
-		top:0;
-		display:none;
-	}
-	.sec4_con_list .show{
-		display:block;
-	}
-	.con_list h2{
-		font-size:30px;
-	}
-	.con_list p{
-		font-size:18px;
-		margin:20px 0;
-	}
-	.con_list div {
-		width: 300px;
-		text-align: left;
-		margin: 20px 156px;
-	}
-	.con_list span{
-		font-size:18px;
-	}
-	.sec4_icon_list{
-		width:150px;
-		position:absolute;
-		left:50%;
-		margin-left:-75px;
-	}
-	.sec4_icon{
-		width:20px;
-		height:20px;
-		text-align:center;
-		line-height:20px;
-		background:rgb(23, 100, 28);
-		color:#fff;
-		margin:5px 5px;
-		font-weight:bold;
-	}
-	.sec4_icon_list .active{
-		background:#cddc39;
-	}
-	.section4 #box {
-		width:500px;
-		height:400px;
-		position:absolute;
-		right:5%;
-		top:20%;
-		overflow: hidden;
-	}
-	.section4 #box ul li {
-		width: 100%;
-		height: 100%;
-		position:absolute;
-		left: 0;
-		top: 0;
-		overflow:hidden;
-	}
-	.section4 #box ul li img {
-		width: 100%;
-		height: 100%;
-	}
-	.section4 .work_pic_dec {
-		width: 60%;
-		height: 21%;
-		background: rgba(0,153,0,.5);
-		position: absolute;
-		left: -300px;
-		top: 70px;
-		text-align: center;
-		color: #fff;
-		font-size: 24px;
-		padding-top: 5px;
-	}
-	.section4 .work_pic_dec_in{
-		left:0;
-	}
-	
-	.section5{
-	}
-	@media (max-width: 1000px){
-		.section2 .projects_list {
-			width: 91%;
-			left:5%;
-			top: 51%;
-			margin-top: -150px;
-		}
-		.section2 .projects_list .projects{
-			height: 57px;
-			margin:5px 10px;
-		}
-		.section2 i {
-			width: 30px;
-			height: 30px;
-			font-size: 26px;
-			line-height: 48px;
-		}
-		.section2 .pro_con {
-			width: 77%;
-			height: 100%;
-			left: 50px;
-			top: -13px;
-			padding-right: 5px;
-		}
-		.section2 .projects_list .projects .pro_con p {
-			font-size: 12px;
-		}
-		.section2 .projects_list .projects .pro_con span {
-			font-size:10px;
-			margin-top:-10px;
-		}
-		#fullpage .section3 .tech_l {
-			width: 100%;
-			height: 50%;
-			left: 0;
-			top: 0;
-		}
-		#fullpage .section3 .tech_r {
-			width: 100%;
-			height: 50%;
-			left: 0;
-			bottom: 0;
-			top:inherit;
-		}
-		#fullpage .section2 .projects_list .projects .through {
-			width: 100%;
-			height: 100%;
-			background: rgba(113, 157, 15,.8);
-			position: absolute;
-			left: 0;
-			top: -170px;
-			text-align: center;
-			line-height: 42px;
-			z-index: 5;
-		}
-		#fullpage .section2 .projects_list .projects .thr_in {
-			width: 67px;
-			height: 15px;
-			background: #FF3;
-			position: absolute;
-			bottom: 3px;
-			left: 120px;
-			line-height: 15px;
-			color: #fff;
-		}
-		.section3 #tagscloud{
-			margin:-40px auto;
-		}
-		.section3 .tech_l_tit, .section3 .tech_r_tit {
-			font-size: 12px;
-			margin: 25px 0 0 25px;
-		}
-		.section3 .tech_l_bg, .tech_r_bg {
-			top: 55px;
-		}
-		.section3 .gridtable {
-			font-size: 14px;
-			margin-top: -19px;
-			margin-left: -156px;
-			background: rgba(51,51,51,.3);
-		}
-		.section3 .gridtable td {
-			border-width: 2px;
-			width: 298px;
-			height: 34px;
-			font-weight:normal;
-		}
-		.section3 .lar {
-			opacity:0;
-		}
-		.section4 #box {
-			width: 90%;
-			height: 50%;
-			right: 5%;
-			top: 30%;
-		}
-		.section4 .work_pic_dec{
-			font-size:20px;
-		}
-		.section4 #box {
-			width: 90%;
-			height: 39%;
-			right: 5%;
-			top: 58%;
-		}
-		.section4 .work_des {
-			width: 90%;
-			height: 350px;
-			top: 7%;
-		}
-		.con_list h2 {
-			font-size: 28px;
-		}
-		.con_list p {
-			margin: 10px 0;
-		}
-		.section4 .sec_tit {
-			height: 32px;
-			font-size: 48px;
-			left: 25px;
-			margin-top:55px;
-		}
-		.con_list div {
-			margin: -10px 42px;
-		}
-		
-	}
-</style>
-<script>
-function tagCloud(){
-	var radius = 90;
-	var d = 200;
-	var dtr = Math.PI / 180;
-	var mcList = [];
-	var lasta = 1;
-	var lastb = 1;
-	var distr = true;
-	var tspeed = 11;
-	var size = 200;
-	var mouseX = 0;
-	var mouseY = 10;
-	var howElliptical = 1;
-	var aA = null;
-	var oDiv = null;
-	window.onload=function ()
-	{
-	var i=0;
-	var oTag=null;
-	oDiv=document.getElementById('tagscloud');
-	aA=oDiv.getElementsByTagName('a');
-	for(i=0;i<aA.length;i++)
-	{
-	oTag={};
-	aA[i].onmouseover = (function (obj) {
-	return function () {
-	obj.on = true;
-	this.style.zIndex = 9999;
-	this.style.color = '#fff';
-	this.style.background = '#0099ff';
-	this.style.padding = '5px 5px';
-	this.style.filter = "alpha(opacity=100)";
-	this.style.opacity = 1;
-	}
-	})(oTag)
-	aA[i].onmouseout = (function (obj) {
-	return function () {
-	obj.on = false;
-	this.style.zIndex = obj.zIndex;
-	this.style.color = '#fff';
-	this.style.background = '#9933FF';
-	this.style.padding = '5px';
-	this.style.filter = "alpha(opacity=" + 100 * obj.alpha + ")";
-	this.style.opacity = obj.alpha;
-	this.style.zIndex = obj.zIndex;
-	}
-	})(oTag)
-	oTag.offsetWidth = aA[i].offsetWidth;
-	oTag.offsetHeight = aA[i].offsetHeight;
-	mcList.push(oTag);
-	}
-	sineCosine( 0,0,0 );
-	positionAll();
-	(function () {
-	update();
-	setTimeout(arguments.callee, 40);
-	})();
-	};
-	function update()
-	{
-	var a, b, c = 0;
-	a = (Math.min(Math.max(-mouseY, -size), size) / radius) * tspeed;
-	b = (-Math.min(Math.max(-mouseX, -size), size) / radius) * tspeed;
-	lasta = a;
-	lastb = b;
-	if (Math.abs(a) <= 0.01 && Math.abs(b) <= 0.01) {
-	return;
-	}
-	sineCosine(a, b, c);
-	for (var i = 0; i < mcList.length; i++) {
-	if (mcList[i].on) {
-	continue;
-	}
-	var rx1 = mcList[i].cx;
-	var ry1 = mcList[i].cy * ca + mcList[i].cz * (-sa);
-	var rz1 = mcList[i].cy * sa + mcList[i].cz * ca;
-	var rx2 = rx1 * cb + rz1 * sb;
-	var ry2 = ry1;
-	var rz2 = rx1 * (-sb) + rz1 * cb;
-	var rx3 = rx2 * cc + ry2 * (-sc);
-	var ry3 = rx2 * sc + ry2 * cc;
-	var rz3 = rz2;
-	mcList[i].cx = rx3;
-	mcList[i].cy = ry3;
-	mcList[i].cz = rz3;
-	per = d / (d + rz3);
-	mcList[i].x = (howElliptical * rx3 * per) - (howElliptical * 2);
-	mcList[i].y = ry3 * per;
-	mcList[i].scale = per;
-	var alpha = per;
-	alpha = (alpha - 0.6) * (10 / 6);
-	mcList[i].alpha = alpha * alpha * alpha - 0.2;
-	mcList[i].zIndex = Math.ceil(100 - Math.floor(mcList[i].cz));
-	}
-	doPosition();
-	}
-	function depthSort()
-	{
-	var i=0;
-	var aTmp=[];
-	for(i=0;i<aA.length;i++)
-	{
-	aTmp.push(aA[i]);
-	}
-	aTmp.sort
-	(
-	function (vItem1, vItem2)
-	{
-	if(vItem1.cz>vItem2.cz)
-	{
-	return -1;
-	}
-	else if(vItem1.cz<vItem2.cz)
-	{
-	return 1;
-	}
-	else
-	{
-	return 0;
-	}
-	}
-	);
-	for(i=0;i<aTmp.length;i++)
-	{
-	aTmp[i].style.zIndex=i;
-	}
-	}
-	function positionAll()
-	{
-	var phi = 0;
-	var theta = 0;
-	var max = mcList.length;
-	for (var i = 0; i < max; i++) {
-	if (distr) {
-	phi = Math.acos(-1 + (2 * (i + 1) - 1) / max);
-	theta = Math.sqrt(max * Math.PI) * phi;
-	} else {
-	phi = Math.random() * (Math.PI);
-	theta = Math.random() * (2 * Math.PI);
-	}
-	//坐标变换
-	mcList[i].cx = radius * Math.cos(theta) * Math.sin(phi);
-	mcList[i].cy = radius * Math.sin(theta) * Math.sin(phi);
-	mcList[i].cz = radius * Math.cos(phi);
-	aA[i].style.left = mcList[i].cx + oDiv.offsetWidth / 2 - mcList[i].offsetWidth / 2 + 'px';
-	aA[i].style.top = mcList[i].cy + oDiv.offsetHeight / 2 - mcList[i].offsetHeight / 2 + 'px';
-	}
-	}
-	function doPosition()
-	{
-	var l = oDiv.offsetWidth / 2;
-	var t = oDiv.offsetHeight / 2;
-	for (var i = 0; i < mcList.length; i++) {
-	if (mcList[i].on) {
-	continue;
-	}
-	var aAs = aA[i].style;
-	if (mcList[i].alpha > 0.1) {
-	if (aAs.display != '')
-	aAs.display = '';
-	} else {
-	if (aAs.display != 'none')
-	aAs.display = 'none';
-	continue;
-	}
-	aAs.left = mcList[i].cx + l - mcList[i].offsetWidth / 2 + 'px';
-	aAs.top = mcList[i].cy + t - mcList[i].offsetHeight / 2 + 'px';
-	//aAs.fontSize=Math.ceil(12*mcList[i].scale/2)+8+'px';
-	//aAs.filter="progid:DXImageTransform.Microsoft.Alpha(opacity="+100*mcList[i].alpha+")";
-	aAs.filter = "alpha(opacity=" + 100 * mcList[i].alpha + ")";
-	aAs.zIndex = mcList[i].zIndex;
-	aAs.opacity = mcList[i].alpha;
-	}
-	}
-	function sineCosine( a, b, c)
-	{
-	sa = Math.sin(a * dtr);
-	ca = Math.cos(a * dtr);
-	sb = Math.sin(b * dtr);
-	cb = Math.cos(b * dtr);
-	sc = Math.sin(c * dtr);
-	cc = Math.cos(c * dtr);
-	}
-}
-function getStyle(obj,name){
-	return (obj.currentStyle||getComputedStyle(obj,false))[name];
-}
-function move(obj,json,options){
-	options=options||{};
-	options.duration=options.durations||700;
-	options.easing=options.easing||'ease-out';
-	var start={};
-	var dis={};
-	for(var name in json){
-		start[name]=parseFloat(getStyle(obj,name));
-		dis[name]=json[name]-start[name];
-	}
-	var count=Math.floor(options.duration/30);
-	var n=0;
-	
-	clearInterval(obj.timer);
-	obj.timer=setInterval(function (){
-		n++;
-		for(var name in json){
-			switch(options.easing){
-				case 'linear':
-					var cur=start[name]+dis[name]*n/count;
-					break;
-				case 'ease-in':
-					var a=n/count;
-					var cur=start[name]+dis[name]*Math.pow(a,3);
-					break;
-				case 'ease-out':
-					var a=1-n/count;
-					var cur=start[name]+dis[name]*(1-Math.pow(a,3));
-					break;	
-			}
-			
-			if(name=='opacity'){
-				obj.style.opacity=cur;
-				obj.style.filter='alpha(opacity:'+cur*100+')';
-			}else{
-				obj.style[name]=cur+'px';
-			}
-		}
-		
-		if(n==count){
-			clearInterval(obj.timer);
-			options.complete&&options.complete();
-		}
-	},30);
-}
-function getDir(obj,ev){
-	var x=obj.getBoundingClientRect().left+obj.offsetWidth/2-ev.clientX;
-	var y=obj.getBoundingClientRect().top+obj.offsetHeight/2-ev.clientY;
-	
-	return Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;;
-}
-function through(obj){
-	obj.onmouseenter=function (ev){
-		var oLi=obj.children[0];
-		var oEvent=ev||event;
-		var dir=getDir(obj,oEvent);
-		switch(dir){
-			case 0:
-				oLi.style.left=0;
-				oLi.style.top='170px';
-				break;
-			case 1:
-				oLi.style.left='-315px';
-				oLi.style.top=0;
-				break;
-			case 2:
-				
-				oLi.style.left=0;
-				oLi.style.top='-170px';
-				break;
-			case 3:
-				oLi.style.left='315px';
-				oLi.style.top=0;
-				
-				break;
-		}
-		move(oLi,{left:0,top:0})
-	};
-	obj.onmouseleave=function (ev){
-		var oLi=obj.children[0];
-		var oEvent=ev||event;
-		var dir=getDir(obj,oEvent);
-		switch(dir){
-			case 0:
-				move(oLi,{top:170,left:0});
-				break;
-			case 1:
-				move(oLi,{top:0,left:-315});
-				break;
-			case 2:
-				move(oLi,{top:-170,left:0});
-				
-				break;
-			case 3:
-				move(oLi,{top:0,left:315});
-				break;
-		}
-	};
-}
-function getByClass(obj,sClass){
-	if(obj.getElementsByClassName){
-		return obj.getElementsByClassName(sClass);
-	}
-	var aResult=[];
-	var aEle=obj.getElementsByTagName('*');
-	var re=new RegExp('\\b'+sClass+'\\b');
-	for(var i=0; i<aEle.length; i++){
-		if(aEle[i].className.search(re)!=-1){
-			aResult.push(aEle[i]);
-		}
-	}
-	return aResult;
-}
-$(function(){
-    $('#fullpage').fullpage({
-        'verticalCentered': false,
-        'css3': true,
-		'sectionsColor': ['#fff', '#fff', '#000', 'rgb(248, 246, 249)','#000'],
-        'anchors': ['section1', 'section2', 'section3', 'section4','section5'],
-        'navigation': true,
-        'navigationPosition': 'right',
-		'afterRender':function(index){
-			  ;(function(){
-                   $('.Reaume').animate({
-						opacity:1
-					},1000);
-					$('.sec1-opa').animate({
-						top:100
-					},2000); 
-					$('.sec1_bg_l').css('transform','rotate(370deg) translateX(-100px)');
-					$('.sec1_bg_r').css('transform','rotate(170deg) translateX(-100px)'); 
-                })();
-				(function(){
-						tagCloud();
-				})();
-				
-		},
-		//滚动到某一屏后的回调函数，接收 anchorLink 和 index 两个参数，anchorLink 是锚链接的名称，index 是序号，从1开始计算
-		'afterLoad': function(anchorLink, index){
-            if(index==1){
-                ;(function(){
-                   $('.Reaume').animate({
-						opacity:1
-					},500);
-					$('.sec1-opa').animate({
-						top:100
-					},500);
-					$('.sec1_bg_l').css('transform','rotate(370deg) translateX(-100px)');
-					$('.sec1_bg_r').css('transform','rotate(170deg) translateX(-100px)');
-                })();
-			}
-			if(index==2){
-				;(function(){
-					$('.fp-prev').hover(function(){
-						$('.fp-prev').animate({
-							left:190
-						},500);
-					},function(){
-						$('.fp-prev').animate({
-							left:200
-						},500);	
-					});
-				})();
-				;(function(){
-					$('.fp-next').hover(function(){
-						$('.fp-next').animate({
-							right:190
-						},500);
-					},function(){
-						$('.fp-next').animate({
-							right:200
-						},500);	
-					});
-					;(function(){
-						var aPro=document.getElementsByClassName('projects');
-						 for(var i=0; i<aPro.length; i++){
-							 through(aPro[i]);
-						}	
-					})();
-				})();
-				;(function(){
-					$('.section2 .projects_list .projects').eq(0).animate({
-                        opacity: 1 
-                    }, 1000);
-                    $('.section2 .projects_list .projects').eq(1).delay(300).animate({
-                        opacity: 1 
-                    }, 1000);
-                    $('.section2 .projects_list .projects').eq(2).delay(600).animate({
-                       opacity: 1 
-                    }, 1000);
-                    $('.section2 .projects_list .projects').eq(3).delay(900).animate({
-                       opacity: 1 
-                    }, 1000);
-					$('.section2 .projects_list .projects').eq(4).delay(1200).animate({
-                       opacity: 1 
-                    }, 1000);
-					$('.section2 .projects_list .projects').eq(5).delay(1500).animate({
-                       opacity: 1 
-                    }, 1000);			
-				})();
-			}
-			if(index==3){
-				;(function(){
-					$('.lar').animate({
-						bottom:400,
-					},1000);
-					if($('.lar').css('bottom','400px') ){
-						$('.lar').animate({left:1000},1000);
-					}
-					$('.lar').css('transform','rotate(90deg)');
-					$('.tech_l_bg,.tech_r_bg').animate({left:63},'slow');
-				})();
-				(function(){
-					tagCloud();
-				})();
-			}
-			if(index==4){
-				;(function(){
-					 var oBox = document.getElementById('box');
-					 var aLi = oBox.getElementsByTagName('li');
-					var aWore_dec = oBox.getElementsByClassName('work_pic_dec');
-					
-					 var w = 30;
-					 for (var i = 1; i < aLi.length; i++) {
-						 
-						aLi[i].style.left = oBox.offsetWidth - (aLi.length-i)*w + 'px';
-					 }
-					for (var i = 0; i < aLi.length; i++) {
-						aLi[i].index = i;
-						aLi[i].onmouseover = function() {
-							for(var i = 0; i < aLi.length; i++){
-								 aWore_dec[i].style.left = '-300px';
-							}
-							move(aWore_dec[this.index],{left:00},{duration:3000});
-							for (var i = 0; i < aLi.length; i++) {
-								if (i <= this.index) {
-									move(aLi[i],{left:i*w},{duration:1000});
-								} else {
-									move(aLi[i],{left:oBox.offsetWidth - (aLi.length - i)*w},{duration:1000});
-								}
-							}
-						};
-					}
-				})();
-			}
-		},
-		'onLeave': function(index, nextIndex, direction){
-            if(index==1){
-                 ;(function(){
-					  $('.Reaume').animate({
-						 	opacity:0 
-						},500); 
-						$('.sec1-opa').animate({
-						top:-300
-					},500);            
-				 })();
-				 $('.sec1_bg_l').css('transform','rotate(0deg) translateX(0px)');
-				 $('.sec1_bg_r').css('transform','rotate(0deg) translateX(0px)'); 
-            }
-			if(index==2){
-				;(function(){
-					$('.section2 .projects_list .projects').animate({
-                        opacity: 0 
-                    }, 1000);
-				})();				
-			}
-			if(index==3){
-				;(function(){
-					$('.lar').css('transform','rotate(0deg)');
-					$('.lar').animate({
-						bottom:10,
-						left:650
-					},100);
-					$('.tech_l_bg,.tech_r_bg').animate({left:-240},'slow');
-				})();
-			}
-			
-		}
-    });
-});
-</script>
+<script src="js/index.js"></script>
+<script src="js/comment.js"></script>
 </head>
-
 <body>
 	<div id="fullpage">
         <div class="section section1">
@@ -1106,106 +21,99 @@ $(function(){
                 <div  class="mypho">
                     <img src="images/mypho.jpg">
                 </div>
-                <h1>叶&nbsp;艳</h1>
-                <span>一腔热血的激情，一夜失眠的创意，一个像素的执着</span>
-                <h2>网站前端工程师</h2>
+                <div class="Reaume_tit">
+                	<h2>FRONT-END WEB DEVELOPER</h2>
+                	<h1>Foina/叶&nbsp;艳/Web 前端工程师</h1>
+                    <span>一腔热血的激情<br/>一夜失眠的创意<br/>一个像素的执着</span>
+                </div>
             </div>
-            <div class="sec1-opa"></div>
-            <div class="sec1_bg clearfix">
-            	<div class="sec1_bg_l fl"></div>
-                <div class="sec1_bg_r fr"></div>
-            </div>
+        	<div class="page1-bg1" rel="-259,-150"><img src="images/page1-bg1.png" /></div>
+            <div class="page1-bg2" rel="-251,50"><img src="images/page1-bg2.png" /></div>
+            <div class="page1-bg3" rel="-496,10"><img src="images/page1-bg3.png" /></div>
+            <div class="page1-bg4" rel="-442,10"><img src="images/page1-bg4.png" /></div>
+            <div class="page1-bg5" rel="-184,50"><img src="images/page1-bg5.png" /></div>
         </div>
         <div class="section section2">
-            <div class="slide slide1">
-            	<div class="sec_tit">
-                	<h1>项目经历</h1><br/>
-                    <h3>PROJECT EXPERIENCE</h3>
-                </div>
-                <ul class="projects_list clearfix">
-                	<li class="projects htcdq active fl clearfix">
-                    	<div class="through">
-                        	<a href="javascript:;"><strong>HTML/CSS/jQuery</strong></a>
-                            <div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
-                        </div>
-                    	<i class="iconfont fl">&#xe611;</i>
-                        <div class="pro_con fl">
-                            <a href="javascript:;"><p>HTC 周年店庆</p></a>
-                            <a href="javascript:;"><span>为网上商城定制独立的活动页面，包含抽奖、倒计时等特效，运用了jQuery的downCount插件。</span></a>
-                        </div>
-                    </li>
-                    <li class="projects xcxd fl clearfix">
-                    	<div class="through">
-                         	<div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
-                            <a href="javascript:;"><strong>HTML/CSS/jQuery</strong></a>
-                        </div>
-                    	<i class="iconfont fl">&#xe62f;</i>
-                        <div class="pro_con fl">
-                            <a href="http://www.ec3s.com/"><p>XCXD 官网改版</p></a>
-                            <a href="javascript:;"><span>与XCXD团队协作，负责开发官网改版的页面动态效果部分。</span></a>
-                        </div>
-                    </li>
-                    <li class="projects vive fl clearfix">
-                    	<div class="through">
-                        	 <div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
-                            <a href="javascript:;"><strong>HTML/CSS</strong></a>
-                        </div>
-                    	<i class="iconfont fl">&#xe652;</i>
-                       <div class="pro_con fl">
-                            <a href="javascript:;"><p>VIVE 自动回复邮件</p></a>
-                            <a href="javascript:;"><span>根据客户提供的word文档，将其制作成html表单格式。</span></a>
-                        </div>
-                    </li>
-                    <li class="projects mini fl clearfix">
-                    	<div class="through">
-                         	<div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
-                        	<a href="javascript:;"><strong>PhotoShop/HTML/CSS/jQuery</strong></a>
-                        </div>
-                    	<i class="iconfont fl">&#xe668;</i>
-                        <div class="pro_con fl">
-                            <a href="javascript:;"><p>MINI 官网改版方案</p></a>
-                            <a href="javascript:;"><span>为htc官网制作周年庆活动页</span></a>
-                        </div>
-                    </li>
-                    <li class="projects lorr fl clearfix">
-                    	<div class="through">
-                         	<div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
-                        	<a href="javascript:;"><strong>PhotoShop/HTML/CSS/jQuery</strong></a>
-                        </div>
-                    	<i class="iconfont fl">&#xe79a;</i>
-                       <div class="pro_con fl">
-                            <a href="http://eshop.htc.com/webapp/wcs/stores/servlet/HCoinLotteryView?catalogId=10001&storeId=10001&langId=-7&position=Nav3"><p>HTC 幸运大抽奖</p></a>
-                            <a href="javascript:;"><span>为htc官网制作周年庆活动页</span></a>
-                        </div>
-                    </li>
-                    <li class="projects sale fl clearfix">
-                    	<div class="through">
-                        	 <div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
-                        	<a href="javascript:;"><strong>PhotoShop/HTML/CSS/jQuery</strong></a>
-                        </div>
-                    	<i class="iconfont fl">&#xe619;</i>
-                        <div class="pro_con fl">
-                            <a href="http://eshop.htc.com/fsbs/fsbs-pc.html?position=Nav2"><p>HTC 逢双必杀</p></a>
-                            <a href="javascript:;"><span>为htc官网制作周年庆活动页</span></a>
-                        </div>
-                    </li>
-                </ul>
+        	<div class="page1-bg1" rel="-259,-150"><img src="images/page1-bg1.png" /></div>
+            <div class="page1-bg2" rel="-259,-150"><img src="images/sce_4_bg3.png" /></div>
+            <div class="sec_tit">
+                <h1>项目经历</h1><br/>
+                <h3>PROJECT EXPERIENCE</h3>
             </div>
-            <div class="slide slide2">
-            	<div class="sec_tit">
-                	<h1>工作经验</h1><br/>
-                    <h3>JOB EXPERIENCE</h3>
-                </div>
-           </div>
-            <div class="slide slide3">
-            	<div class="sec_tit">
-                	<h1>工作日志</h1><br/>
-                    <h3>JOB LOG</h3>
-                </div>
-            </div>
+            <div class="move_line"></div>
+            <ul class="projects_list clearfix">
+                <li class="projects htcdq active fl clearfix">
+                    <div class="through">
+                        <a href="javascript:;"><strong>HTML/CSS/JS/jQuery</strong></a>
+                        <div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
+                    </div>
+                    <i class="iconfont fl">&#xe611;</i>
+                    <div class="pro_con fl">
+                        <a href="javascript:;"><p>HTC 周年店庆</p></a>
+                        <a href="javascript:;"><span>为网上商城定制独立的活动页面，包含抽奖、倒计时等特效，运用了jQuery的downCount插件。</span></a>
+                    </div>
+                </li>
+                <li class="projects mini fl clearfix">
+                    <div class="through">
+                        <div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
+                        <a href="javascript:;"><strong>PhotoShop/HTML/CSS/JS</strong></a>
+                    </div>
+                    <i class="iconfont fl">&#xe668;</i>
+                    <div class="pro_con fl">
+                        <a href="javascript:;"><p>MINI 官网无缝轮播</p></a>
+                        <a href="javascript:;"><span>在MINI首页前端开发团队中，担任首页头部选项卡插件开发任务，与团队合作共同完成MINI首页改版。</span></a>
+                    </div>
+                </li>
+                <li class="projects xcxd fl clearfix">
+                    <div class="through">
+                        <div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
+                        <a href="javascript:;"><strong>HTML/CSS/PhotoShop</strong></a>
+                    </div>
+                    <i class="iconfont fl">&#xe62f;</i>
+                    <div class="pro_con fl">
+                        <a href="http://www.ec3s.com/"><p>HTC 开学季</p></a>
+                        <a href="javascript:;"><span>根据设计师提供的文件，对设计稿进行页面HTML还原。</span></a>
+                    </div>
+                </li>
+                <li class="projects vive fl clearfix">
+                    <div class="through">
+                         <div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
+                        <a href="javascript:;"><strong>HTML/CSS</strong></a>
+                    </div>
+                    <i class="iconfont fl">&#xe652;</i>
+                   <div class="pro_con fl">
+                        <a href="javascript:;"><p>VIVE 自动回复邮件</p></a>
+                        <a href="javascript:;"><span>根据客户提供的word文档，将其制作成html表单格式。</span></a>
+                    </div>
+                </li>
+                
+                <li class="projects lorr fl clearfix">
+                    <div class="through">
+                        <div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
+                        <a href="javascript:;"><strong>PhotoShop/HTML/CSS</strong></a>
+                    </div>
+                    <i class="iconfont fl">&#xe79a;</i>
+                   <div class="pro_con fl">
+                        <a href="http://eshop.htc.com/webapp/wcs/stores/servlet/HCoinLotteryView?catalogId=10001&storeId=10001&langId=-7&position=Nav3"><p>HTC 首页日常维护</p></a>
+                        <a href="javascript:;"><span>根据HTC的活动和客户需求，对首页样式进行修改，并对页面兼容性进行定期维护。</span></a>
+                    </div>
+                </li>
+                <li class="projects sale fl clearfix">
+                    <div class="through">
+                         <div class="thr_in"><a href="javascript:;" >查看Dome</a></div>
+                        <a href="javascript:;"><strong>PhotoShop/HTML/CSS</strong></a>
+                    </div>
+                    <i class="iconfont fl">&#xe619;</i>
+                    <div class="pro_con fl">
+                        <a href="http://eshop.htc.com/fsbs/fsbs-pc.html?position=Nav2"><p>HTC 逢双必杀</p></a>
+                        <a href="javascript:;"><span>这是一个HTC的长期活动，每周需对页面HTML+CSS进行重构。</span></a>
+                    </div>
+                </li>
+            </ul>
+            <a class="read_more" href="javascript;:">到Github查看更多</a>
         </div>
         <div class="section section3">
-        	<div class="lar"></div>
+        	<div class="sec3_bg"></div>
        	    <div class="tech_l">
                 <div class="tech_l_tit">
                     <h1>我的硬件</h1>
@@ -1217,8 +125,8 @@ $(function(){
                         <a href="#" class="tagc2">HTML5</a>
                         <a href="#" class="tagc5">Seajs模块化</a>
                         <a href="#" class="tagc2">Angularjs</a>
-                        <a href="#"" class="tagc2">BootStrap</a>
-                        <a href="#" class="tagc1">图像处理PhotoShop</a>
+                        <a href="#" class="tagc2">BootStrap</a>
+                        <a href="#" class="tagc1">PhotoShop</a>
                         <a href="#" class="tagc2">CSS</a>
                         <a href="#" class="tagc5">HTML5</a>
                         <a href="#" class="tagc2">jQuery框架</a>
@@ -1227,20 +135,20 @@ $(function(){
                         <a href="#" class="tagc1">HTML5</a>
                         <a href="#" class="tagc2">jQuery框架</a>
                         <a href="#" class="tagc5">Seajs模块化</a>
-                        <a href="#" class="tagc2">图像处理PhotoShop(1)</a>
+                        <a href="#" class="tagc2">PhotoShop</a>
                         <a href="#" class="tagc2">HTML</a>
-                        <a href="#" class="tagc5">原生JavaScript</a>
+                        <a href="#" class="tagc5">JavaScript</a>
                         <a href="#" class="tagc1">Nodejs</a>
-                        <a href="#" class="tagc2">原生JavaScript</a>
+                        <a href="#" class="tagc2">JavaScript</a>
                         <a href="#" class="tagc5">jQuery框架</a>
                         <a href="#" class="tagc2">HTML</a>
                         <a href="#" class="tagc2">Nodejs</a>
                         <a href="#" class="tagc2">BootStrap</a>
                         <a href="#" class="tagc1">HTML5</a>
-                        <a href="#" class="tagc2">原生JavaScript</a>
-                        <a href="#" class="tagc5">原生JavaScript</a>
+                        <a href="#" class="tagc2">JavaScript</a>
+                        <a href="#" class="tagc5">JavaScript</a>
                         <a href="#" class="tagc2">CSS</a>
-                        <a href="#" class="tagc1">图像处理PhotoShop</a>
+                        <a href="#" class="tagc1">PhotoShop</a>
                         <a href="#" class="tagc5">BootStrap</a>
                    </div>
              </div>
@@ -1267,53 +175,61 @@ $(function(){
             </div>
         </div>
         <div class="section section4 clearfix">
-        	<div class="work_des fl">
+        	<a class="read_more_sec4" href="javascript:;">到Github查看更多</a>
+        	<div class="sec4_bg1"></div>
+            <div class="sec4_bg2"></div>
+        	<div class="work_des">
             	<div class="sec_tit">MY WORKS</div>
-            	<div class="sec4_con">
+            	<div class="sec4_con" id="sec4_con">
                  	<ul class="sec4_con_list">
+                    	<li class="con_list">
+                        	<h2>神奇宝贝</h2>
+                            <div class="line"></div>
+                            <p>--看点：综合JS知识点--</p>
+                            <div>
+                            	<span>·纯原生js编写，</span><br/>
+                                <span>·原创图片及页面架构，</span><br/>
+                                <span>·综合各种流行的js效果。</span>
+                            </div>
+                        </li>
                     	<li class="con_list show">
-                        	<h2>作品主题：十二星座</h2>
-                            <p>运用知识：Javascript/CSS3</p>
+                        	<h2>3D十二星座</h2>
+                            <div class="line"></div>
+                            <p>看点：运用HTML5+CSS3</p>
                             <div>
                             	<span>·采用原生JS书写拖拽代码，</span><br/>
                                 <span>·封装Move框架优化web性能，</span><br/>
                                 <span>·利用transform实现3D视觉效果。</span>
                             </div>
                         </li>
+                        
                         <li class="con_list">
-                        	<h2>作品主题：神奇宝贝</h2>
-                            <p>运用知识：Javascript/CSS3</p>
+                        	<h2>模拟购物车</h2>
+                             <div class="line"></div>
+                            <p>--看点：运用Angular知识--</p>
                             <div>
-                            	<span>·采用原生JS书写拖拽代码，</span><br/>
-                                <span>·封装Move框架优化web性能，</span><br/>
-                                <span>·利用transform实现3D视觉效果。</span>
+                            	<span>·学习当下最流行框架，</span><br/>
+                                <span>·运用MVC知识，</span><br/>
+                                <span>·实现页面双向数据绑定。</span>
                             </div>
                         </li>
                         <li class="con_list">
-                        	<h2>作品主题：iPhone展示</h2>
-                            <p>运用知识：Javascript/CSS3</p>
+                        	<h2>随心照片墙</h2>
+                             <div class="line"></div>
+                            <p-->看点：封装Move框架--</p>
                             <div>
                             	<span>·采用原生JS书写拖拽代码，</span><br/>
-                                <span>·封装Move框架优化web性能，</span><br/>
-                                <span>·利用transform实现3D视觉效果。</span>
+                                <span>·封装Move框架优化web性能，</span>
                             </div>
                         </li>
                         <li class="con_list">
-                        	<h2>作品主题：十二星座</h2>
-                            <p>运用知识：Javascript/CSS3</p>
+                        	<h2>留言板</h2>
+                             <div class="line"></div>
+                            <p>运用知识：Ajax后台交互</p>
                             <div>
-                            	<span>·采用原生JS书写拖拽代码，</span><br/>
-                                <span>·封装Move框架优化web性能，</span><br/>
-                                <span>·利用transform实现3D视觉效果。</span>
-                            </div>
-                        </li>
-                        <li class="con_list">
-                        	<h2>作品主题：十二星座</h2>
-                            <p>运用知识：Javascript/CSS3</p>
-                            <div>
-                            	<span>·采用原生JS书写拖拽代码，</span><br/>
-                                <span>·封装Move框架优化web性能，</span><br/>
-                                <span>·利用transform实现3D视觉效果。</span>
+                            	<span>·运用ajax基础知识，</span><br/>
+                                <span>·搭建前台框架，</span><br/>
+                                <span>·与后台进行数据交互。</span>
                             </div>
                         </li>
                     </ul>
@@ -1326,32 +242,64 @@ $(function(){
                     </div>
                 </div>
             </div>
-            <div class="work_pic fr" id="box">
+            <div class="work_pic" id="box">
                 <ul>
                 	<li>
-                    	<img src="img/qin/1.jpg" alt="">
-                   		<div class="work_pic_dec work_pic_dec_in">Constellation<br/>十二星座</div>
+                    	<img src="images/work/1.jpg" alt="">
+                   		<div class="work_pic_dec work_pic_dec_in">Pokémon<br/>神奇宝贝</div>
+                        <a class="sec4_btn" href="javascript:;">查看Dome</a>
                     </li>
                     <li>
-                    	<img src="img/qin/2.jpg" alt="">
-                        <div class="work_pic_dec">Pokémon<br/>神奇宝贝</div>
+                    	<img src="images/work/2.jpg" alt="">
+                        <div class="work_pic_dec">Constellation<br/>十二星座</div>
+                        <a class="sec4_btn" href="javascript:;">查看Dome</a>
                     </li>
                     <li>
-                    	<img src="img/qin/3.jpg" alt="">
-                        <div class="work_pic_dec">iPhoneshow<br/>iPhone展示</div>
+                    	<img src="images/work/3.jpg" alt="">
+                        <div class="work_pic_dec">ShopCar<br/>模拟购物车</div>
+                        <a class="sec4_btn" href="javascript:;">查看Dome</a>
                     </li>
                     <li>
-                    	<img src="img/qin/4.jpg" alt="">
-                        <div class="work_pic_dec">Poto wall<br/>照片墙</div>
+                    	<img src="images/work/4.jpg" alt="">
+                        <div class="work_pic_dec">changePoto<br/>随心照片墙</div>
+                        <a class="sec4_btn" href="javascript:;">查看Dome</a>
                     </li>
                     <li>
-                    	<img src="img/qin/5.jpg" alt="">
-                        <div class="work_pic_dec">运用js/css的作品</div>
+                    	<img src="images/work/5.jpg" alt="">
+                        <div class="work_pic_dec">sendMSG<br/>留言板</div>
+                        <a class="sec4_btn" href="javascript:;">查看Dome</a>
                     </li>
                 </ul>
-    		</div>
+            </div>
 		</div>
-        <div class="section section5">请联系我</div>
+        <div class="section section5">
+        	 <div class="sec5_bg1"></div>
+             <div class="sec5_bg2"></div>
+             <div class="mypic"></div>
+             <div class="sec5_tit">
+             	<h1>谢谢你停下来！</h1>
+               	<ul class="content_list">
+                	<li class="content clearfix">
+                    	<i class="iconfont fl">&#xf0007;</i>
+                        <p class="fl">Tel:-18610479624</p>
+                    </l>
+                    <li class="content clearfix">
+                    	<i class="iconfont fl">&#xe665;</i>
+                        <p class="fl">Email:fionayeyan@163.com</p>
+                    </l>
+                    <li class="content clearfix">
+                    	<i class="iconfont fl">&#xe69f;</i>
+                        <p class="fl">GitHub:fionayeyan@github.io</p>
+                    </l>
+                </ul>
+             </div>
+             <div class="square_list clearfix">
+             	<span class="square fl"></span>
+                <span class="square fl"></span>
+                <span class="square fl"></span>
+                <span class="square fl"></span>
+             </div>
+        </div>
     </div>
 </body>
 </html>

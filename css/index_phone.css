@@ -1,0 +1,195 @@
+@charset "utf-8";
+@media (max-width: 1000px){
+		.section1 .Reaume_tit h1 {
+			font-size: 26px;
+		}
+		.section2 .sec_tit {
+ 			color: #d0ff00;
+		}
+		.section2 .move_line {
+			left: 50px;
+			z-index: 1;
+		}
+		.section2 .projects_list {
+			width: 91%;
+			left:5%;
+			top: 51%;
+			margin-top: -150px;
+		}
+		.section2 .projects_list .projects{
+			height: 57px;
+			margin:5px 10px;
+		}
+		.section2 i {
+			width: 30px;
+			height: 30px;
+			font-size: 26px;
+			line-height: 48px;
+		}
+		.section2 .pro_con {
+			width: 77%;
+			height: 100%;
+			left: 50px;
+			top: -13px;
+			padding-right: 5px;
+		}
+		.section2 .projects_list .projects .pro_con p {
+			font-size: 12px;
+		}
+		.section2 .projects_list .projects .pro_con span {
+			font-size:10px;
+			margin-top:-10px;
+		}
+		.section2 .read_more {
+			right: 129px;
+			top: 101px;
+			font-weight: bold;
+			text-decoration: underline;
+			color: #cddc39;
+			font-size: 12px;
+			z-index: 999;
+		}
+		#fullpage .section3 .tech_l {
+			width: 100%;
+			height: 50%;
+			left: 0;
+			top: 0;
+		}
+		#fullpage .section3 .tech_r {
+			width: 100%;
+			height: 50%;
+			left: 0;
+			bottom: 0;
+			top:inherit;
+		}
+		#fullpage .section2 .projects_list .projects .through {
+			width: 100%;
+			height: 100%;
+			background: rgba(113, 157, 15,.8);
+			position: absolute;
+			left: 0;
+			top: -170px;
+			text-align: center;
+			line-height: 42px;
+			z-index: 5;
+		}
+		#fullpage .section2 .projects_list .projects .thr_in {
+			width: 67px;
+			height: 15px;
+			background: #FF3;
+			position: absolute;
+			bottom: 3px;
+			left: 120px;
+			line-height: 15px;
+			color: #fff;
+		}
+		.section3 #tagscloud{
+			margin:-40px auto;
+		}
+		.section3 .tech_l_tit, .section3 .tech_r_tit {
+			font-size: 12px;
+			margin: 25px 0 0 25px;
+		}
+		.section3 .tech_l_bg, .tech_r_bg {
+			top: 55px;
+		}
+		.section3 .gridtable {
+			font-size: 14px;
+			margin-top: -19px;
+			margin-left: -156px;
+		}
+		.section3 .gridtable td {
+			border-width: 2px;
+			width: 298px;
+			height: 34px;
+			font-weight:normal;
+		}
+		.sec4_bg1 {
+			height: 459px;
+			top: -145px;
+		}
+		.section4 #box {
+			width: 90%;
+			height: 50%;
+			right: 5%;
+			top: 30%;
+		}
+		.section4 .work_pic_dec{
+			font-size:20px;
+			height:28%;
+		}
+		.section4 #box {
+			width: 90%;
+			height: 39%;
+			right: 5%;
+			top: 58%;
+		}
+		.section4 .work_des {
+			width: 90%;
+			height: 350px;
+			top: 7%;
+		}
+		.con_list h2 {
+			font-size: 20px;
+			margin-left: -100px;
+			margin-top: 10px;
+		}
+		.con_list p {
+			margin: 20px 0;
+		}
+		.con_list span {
+			font-size: 15px;
+		}
+		.section4 .sec_tit {
+			height: 32px;
+			font-size: 48px;
+			left: 25px;
+			margin-top:55px;
+		}
+		.con_list div {
+			margin: -10px 42px;
+		}
+		.con_list .line {
+			width: 56%;
+			height: 2%;
+			left: -560px;
+			top: 28%;
+			border-radius: 36px;
+			box-shadow: 0 6px 4px #ccc;
+		}
+		.section4 .sec4_btn {
+			left: 19%;
+			top: 67%;
+		}
+		.section4 .read_more_sec4 {
+			left: 200px;
+			top: 248px;
+		}
+		.sec5_tit .content_list {
+			left: 0;
+			top: 100px;
+			font-size: 24px;
+			color: #fff;
+		}
+		.sec5_tit {
+			left: 14px;
+			top: 350px;
+		}
+		.sec5_tit h1 {
+			font-size: 35px;
+		}
+		.sec5_tit .content p{
+			color:#fff;
+			font-size: 22px;
+		}
+		.section5 .iconfont {
+		   font-size: 25px;
+		}
+		.square_list {
+			position: absolute;
+			right: 83px;
+			top: 333px;
+			width: 195px;
+		}
+	}
+

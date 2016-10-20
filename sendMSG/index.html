@@ -1,0 +1,267 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>留言板</title>
+<link href="style/weibo.css" rel="stylesheet" type="text/css" />
+<script src="all_ajax.js"></script>
+<script src="cookie.js"></script>
+<script>
+//时间补零
+function toDou(n){
+	if(n<10){
+		return '0'+n;
+	}else{
+		return ''+n;
+	}
+}
+//设置时间及格式2011-09-08 16:37:60（从后台传一个时间，以防用户电脑上时间不准）
+function getCNtime(s){
+	var oDate = new Date(s*1000);
+	return oDate.getFullYear()+'-'+toDou((oDate.getMonth()+1))+'-'+toDou(oDate.getDate())+' '+oDate.getHours()+':'+toDou(oDate.getMinutes())+':'+toDou(oDate.getSeconds());
+}
+window.onload = function(){
+	var oText = document.getElementById('tijiaoText');
+	var oSend = document.getElementById('send_btn');
+	var oNc = document.getElementById('nc');
+	var oMesslist = document.getElementById('messList');
+	var oPage = document.getElementById('page');
+	var iNow = window.location.hash.substring(5)||1;
+	
+	//统一设置url以便引用
+	url='weibo.php';
+	
+	//添加留言
+	oSend.onclick = function(){
+		//输入框内容为空，不能发送
+		if(oText.value=='')return;
+		ajax({
+			url:url,
+			//根据后台给的文件，act=add&content=xxx
+			data:{
+				act:'add',
+				content:oText.value
+			},
+			//后台返回的数格式据，需要前端交互{error:0, id: 新添加内容的ID, time: 添加时间}
+			success:function(str){
+				var json = eval('('+str+')');
+				if(!json.error){
+					
+					//按后台要求传送相应数据，id为每条信息的标记
+					var oDiv = createDiv(json.id,oText.value,json.time,0,0);
+					if(!oMesslist.children.length){
+						oMesslist.appendChild(oDiv);
+					}else{
+						oMesslist.insertBefore(oDiv,oMesslist.children[0]);
+					}
+					oText.value = '';
+					oText.focus();
+					//留言大于6条，删除一条
+					if(oMesslist.children.length>6){
+						oMesslist.removeChild(oMesslist.children[6]);
+					}
+					//第一次判断‘暂无留言’
+					if(oMesslist.children.length){
+						oNc.style.display='none';
+					}else{
+						oNc.style.display='block';
+					}
+					//解决bug1：条数够了，自动加页码
+					foPage.innerHTML='';
+					getPage();
+				
+				}else{
+					alert('留言失败');
+				}
+			},
+			error:function(err){
+				alert(err);
+			}
+		});
+	};
+	//创建一条留言条
+	function createDiv(id,content,time,acc,ref){
+		var oDiv = document.createElement('div');
+		oDiv.className = 'reply';
+		oDiv.innerHTML = '<p class="replyContent">'+content+'</p><p class="operation"><span class="replyTime">'+getCNtime(time)+'</span><span class="handle"><a href="javascript:;" class="top">0</a><a href="javascript:;" class="down_icon">0</a><a href="javascript:;" class="cut">删除</a></span></p>';
+		
+		var oAcc = oDiv.getElementsByTagName('a')[0];
+		var oRef = oDiv.getElementsByTagName('a')[1];
+		var oDel = oDiv.getElementsByTagName('a')[2];
+		
+		oAcc.onclick = function(){
+			if(getCookie('acc'+id)){
+				alert('一天只能点一次');
+				return;
+			}
+			ajax({
+				url:url,
+				data:{
+					act:'acc',
+					id:id
+				},
+				success:function(str){
+					var json = eval('('+str+')');
+					if(!json.error){
+						oAcc.innerHTML++;
+						alert('点赞成功');
+						setCookie('acc'+id,oAcc.innerHTML,1);
+					}else{
+						alert('点赞失败');
+					}
+				},
+				error:function(err){
+					alert(err);
+				}
+			});
+		};
+		oRef.onclick = function(){
+			if(getCookie('ref'+id)){
+				alert('一天只能点一次');
+				return;
+			}
+			ajax({
+				url:url,
+				data:{
+					act:'ref',
+					id:id
+				},
+				success:function(str){
+					var json = eval('('+str+')');
+					if(!json.error){
+						setCookie('ref'+id,oRef.innerHTML,1);
+						oRef.innerHTML++;
+						alert('踩成功');
+					}else{
+						alert('踩失败');
+					}
+				},
+				error:function(err){
+					alert(err);
+				}
+			});
+		};
+		oDel.onclick = function(){
+			ajax({
+				url:url,
+				data:{
+					act:'del',
+					id:id
+				},
+				success:function(str){
+					var json = eval('('+str+')');
+					if(!json.error){
+						alert('删除成功');
+						//第二次判断‘暂无留言’
+						if(oMesslist.children.length){
+							oNc.style.display = 'none';
+						}else{
+							oNc.style.display = 'block';
+						}
+						oMesslist.removeChild(oDel.parentNode.parentNode.parentNode);
+						oMesslist.innerHTML = '';
+						getMsg();
+						oPage.innerHTML = '';
+						getPage();
+						
+					}else{
+						alert('删除失败');
+					}
+				},
+				error:function(err){
+					alert(err);
+				}
+			});
+		};
+		return oDiv;
+	}
+	//获取一页的数据
+	function getMsg(){
+		//weibo.php?act=get&page=1
+		ajax({
+			url:url,
+			data:{
+				act:'get',
+				page:iNow,
+			},
+			//返回：[{id: ID, content: "内容", time: 时间戳, acc: 顶次数, ref: 踩次数}, {...}, ...]
+			success:function(str){
+				var arr = eval('('+str+')');
+				for(var i=0;i<arr.length;i++){
+					var oDiv =  createDiv(arr[i].id,arr[i].content,arr[i].time,arr[i].acc,arr[i].ref);
+					oMesslist.appendChild(oDiv);
+				}
+				//第三次判断‘暂无留言’
+				if(oMesslist.children.length||iNow >= 2){
+						oNc.style.display = 'none';
+					}else{
+						oNc.style.display = 'block';
+					}
+			},
+			error:function(err){
+				alert(err);
+			}
+		});
+	}
+	getMsg();
+	//获取页数
+	function getPage(){
+		ajax({
+			url:url,
+			//act=get_page_count
+			data:{
+				act:'get_page_count'
+			},
+			//返回：{count:页数}
+			success:function(str){
+				var json = eval('('+str+')');
+				for(var i=0;i<json.count;i++){
+					var oA = document.createElement('a');
+					oA.href = '#page'+(i+1);
+					oA.innerHTML = i+1;
+					oPage.appendChild(oA);
+					if((iNow-1)==i){
+						oA.className = 'active';
+					}
+					
+					oA.onclick = function(){
+						var aA = oPage.children;
+						for(var i=0;i<aA.length;i++){
+							aA[i].className = '';
+						}
+						this.className = 'active';
+						iNow = parseInt(this.innerHTML);
+						oMesslist.innerHTML = '';
+						getMsg(iNow);
+					};
+				}
+			},
+			error:function(err){
+				alert(err);
+			}
+		});
+	}
+	getPage();
+};
+</script>
+</head>
+
+<body  style="height:10000px;">
+<div class="znsArea">
+<!--留言-->
+     <div class="takeComment">
+        <textarea name="textarea" class="takeTextField" id="tijiaoText"></textarea>
+        <div class="takeSbmComment">
+            <input type="button" class="inputs" value="" id="send_btn"/>
+            <span>(可按 Enter 回复)</span>
+        </div>
+    </div>
+<!--已留-->
+    <div class="commentOn">
+        <div class="noContent" id="nc">暂无留言</div>
+        <div class="messList" id="messList"></div>
+        <div class="page" id="page"></div>
+    </div>
+</div>
+</body>
+</html>
