@@ -1,0 +1,412 @@
+@charset "utf-8";
+.nav{
+	width:0px;
+	height:340px;
+	position:absolute;
+	right:0;
+	top:110px;
+	background:rgba(0,0,0,0.3); 
+	border-radius:50%;
+	z-index:999;
+}
+.nav .nav_list{
+	overflow:hidden;
+}
+.nav .nav_con{
+	height:60px;
+	margin:20px 10px;
+	color:#fff;
+	text-align:center;
+	border:1px solid #666;
+	cursor:pointer;
+}
+.nav .active{
+	background:rgba(255,204,51,1);
+}
+.nav .nav_con span{
+	font-size:16px;
+	display:block;
+} 
+.nav .nav_pic{
+	position:relative;
+	cursor:pointer;
+}
+.nav .nav_pic img{
+	position:absolute;
+	top: -205px;
+	left: -60px;
+}
+.nav .nav_pic span{
+	position:absolute;
+	top: -130px;
+	left: -60px;
+	text-align:center;
+	color:#C00;
+	font-weight:bold;
+}
+.action{
+	width:100%;
+	height:100%;
+	position:absolute;
+	display:none;
+	overflow:hidden;
+}
+.on{
+	display:block;
+}
+.action .actone_bg,.action .acttwo_bg{
+	height:100%;
+	position:relative;
+	z-index:-999;
+	width:100%;
+}
+.action .actone_bg img{
+	width:100%;
+	height:100%;
+}
+.action .acttwo_bg{
+	background: linear-gradient(-45deg,#009688,#E91E63);
+}
+.action .logo{
+	width:401px;
+	height:178px;
+	position:absolute;
+	left:50%;
+	top:20px;
+	margin-left:-200px;
+}
+.action .trends_tit{
+	width: 80%;
+	height: 50px;
+	color:#000;
+	font-size: 20px;
+	position: absolute;
+	left: 100px;
+	top: 220px;
+}
+.action .trends_tit span{
+	opacity:0;
+	box-shadow: 31px 10px 39px #FC0;
+}
+.action .person_list{
+	box-shadow: 0px -10px 94px #FC0;
+	border-radius:50%;
+	width:436px;
+	height:310px;
+	position:absolute;
+	left:50%;
+	bottom:0;
+	margin-left:-218px;
+}
+.action .person_list .person{
+	width:200px;
+	height:310px;
+	float:left;
+	margin:0 -28px;
+	position:relative;
+}
+.action .person_list .person img{
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:-850px;
+	top:0;
+}
+.small_mon{
+	width:700px;
+	height:114px;
+	position:absolute;
+	left:50%;
+	bottom:0;
+	margin-left:-640px;
+}
+.action .mon_list{
+	width:700px;
+	position:absolute;
+	bottom:0;
+	left:-700px;
+}
+.action .mon_list .mon{
+	width:100px;
+	float:left;
+	
+}
+.action .mon_list .mon img{
+	width:100%;
+	height:100%;
+}
+.action .acttwo_con{
+	width:100%;
+	height:600px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.action .acttwo_con .acttwo_con_l{
+	width:350px;
+	margin: 140px 110px;
+}
+.action .acttwo_con .acttwo_con_l p{
+	color:#000;
+	font-size: 20px;
+	line-height:40px;
+}
+.action .acttwo_con .acttwo_con_l p span{
+	opacity:0;
+	text-shadow:0 0 10px #ccc;
+}
+.action .acttwo_con .acttwo_con_r{
+	width:500px;
+	height:500px;
+	margin-right: 100px;
+	margin-top: 80px;
+	position:relative;
+}
+.action .acttwo_con_r .acttwo_pic1{
+	position:absolute;
+	left:-1280px;
+	top:0;
+	box-shadow: 26px 16px 80px #fff;
+}
+.action .acttwo_con_r .acttwo_pic2{
+	position:absolute;
+	left:0;
+	top:0;
+	box-shadow: 9px -30px 170px #8286BE;
+	border-radius:50%;
+	opacity:0;
+}
+.action .bg_t_bg{
+	height:50%; 
+	width:100%;
+	position:absolute;
+	top:0;
+	background:#F60;
+	z-index:-99;
+}
+.action .bg_b_bg{
+	height:50%; 
+	width:100%;
+	position:absolute;
+	bottom:0;
+	background:#000;
+	z-index:-99;
+}
+
+.act3_tit{
+	width: 62%;
+	font-size: 18px;
+	font-weight: bold;
+	color: #F60;
+	text-shadow:1px 1px 30px #fff;
+	transition:1s all ease;
+	position: absolute;
+	left: 521px;
+	top: 22px;
+}
+.act3_tit:hover{
+	text-shadow:1px 1px 0 #fff;
+}
+.xz_pic{
+	width:288px;
+	position:absolute;
+	left:50px;
+	top:0;
+	box-shadow:0 0 146px yellow;
+	border-radius:50%;
+}
+.xz_pic img{
+	width:100%;
+}
+.xz_pic span{
+	position: absolute;
+	left: 210px;
+	top: 122px;
+	color: #fff;
+	font-size: 18px;
+}
+.phl_pic{
+	width: 245px;
+	position: absolute;
+	left: 400px;
+	top: 110px;
+}
+.phl_pic img{
+	width:100%;
+}
+.fire{
+	width: 750px;
+	height: 318px;
+	position: absolute;
+	right: -20px;
+	top: 9px;
+	overflow: hidden;
+}
+.fire img{
+	width: 290px;
+	height: 318px;
+	border-radius: 90%;
+}
+.bg_t_bg2{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 240px;
+	background: url(images/fire2.png) 7px -1px repeat;
+}
+.hjd{
+	position:absolute;
+	bottom:0;
+	right:0;
+	z-index:-10;
+}
+.hjd_talk{
+	width: 49%;
+	font-size: 38px;
+	font-weight: bold;
+	color: #fff;
+	position: absolute;
+	left: 113px;
+	bottom: 142px;
+}
+#actfour{
+	overflow:hidden;
+}
+.act4_logo{
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -225px;
+    margin-top: -74px;
+    width: 550px;
+    z-index: 99;
+    font-size: 56px;
+    color: #000;
+    background: #FF0;
+    box-shadow: 0 0 35px #FF0;
+    text-align: center;
+    border-radius: 10px 35px 10px 35px;
+}
+.act4_pkq{
+	width:180px;
+	height:180px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.one{
+	left: 100px;
+	top: 265px;
+	opacity:0;
+}
+.two{
+	left: 900px;
+	top: 50px;
+	opacity:0;
+}
+.three{
+	left: 640px;
+	top: 400px;
+	opacity:0;
+}
+.four{
+	left: 395px;
+	top: 48px;
+	width:150px;
+	height:150px;
+}
+.pkq_list{
+	width: 120%;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    background: rgba(51,51,51,.5);
+    margin-top: -250px;
+}
+.act4_pkq img{
+	width:100%;
+	height:100%;
+}
+.act4_pkq span{
+	color:#000;
+	font-size:18px;
+	margin-left:50px;
+}
+.wrap{ 
+	width:100px; 
+	height:100px;
+	}
+#div1{
+	width:100px;
+	height:100px; 
+	background:url(images/精灵球.png) no-repeat;  
+	position:absolute; 
+	top:20px; 
+	left:48%;
+	overflow:hidden; 
+	z-index:888;
+	}
+#div2 div{
+	width:100px; 
+	background:url(images/精灵球.png) no-repeat; 
+	height:100px; 
+	position:absolute; 
+	top:20px; 
+	left:48%; 
+	z-index:100;
+}
+@media(max-width: 1000px){
+	.small_mon{
+		margin-left:-617px;
+	}
+	#mon_list{
+		bottom: 300px;
+	}
+	#person_list{
+		bottom: 300px;
+	}
+	#actone .trends_tit{
+		width: 64%;
+		top: 570px;
+		left: 160px;
+		font-size: 29px;
+	}
+	#actone .logo{
+		top:15%;
+	}
+	.action .acttwo_con{
+		margin: 120px 50px;
+	}
+	.action .acttwo_con .acttwo_con_l p{
+		font-size: 29px;
+	}
+	#actthree .xz_pic{
+		top:10%;
+		left:325px;
+	}
+	#actthree .fire{
+		right: 58px;
+		top: 56%;
+		transform: rotate(30deg);
+	}
+	#actthree .phl_pic{
+		left: 10px;
+		top: 51%;
+		transform: rotate(28deg);
+	}
+	#actthree .hjd{
+		bottom:10px;
+	}
+	#actthree .hjd_talk{
+		bottom:365px;
+	}
+	#actthree .act3_tit{
+		width: 62%;
+		color: #fff;
+		left: 160px;
+		top: 600px;
+	}
+	.pkq_list {
+		 left: -93px; 
+	}
+}
