@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pokemon</title>
+<link rel="shortcut icon" href="images/favicon.ico.png" />
+<link rel="stylesheet" href="base.css"/>
+<link rel="stylesheet" href="style.min.css"/>
+<script src="javascript.mini.js"></script>
+<script src="move_all.js"></script>
+<script src="move-speed1.js"></script>
+<script src="move-speed.js"></script>
+
+<script>
+	window.onload = function(){
+		act1Movein();
+		(function (){
+			var oNav = document.getElementById('nav');
+			var aLi = getByClass(oNav,'nav_con');
+			var aDiv = getByClass(document,'action');
+			var Btimer = null;
+			
+			oNav.onmouseover = function(){
+				move(oNav,{width:200});
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].style.border = '1px solid #666';
+				}
+			};
+			oNav.onmouseout = function(){
+				move(oNav,{width:0});
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].style.border = 0;
+				}
+			};
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].index = i;
+				aLi[i].onmouseover=function (){
+					clearTimeout(Btimer);
+					var _this=this; 	//定时器里面绝对不可以使用this
+					Btimer=setTimeout(function (){
+						for(var i=0;i<aLi.length;i++){
+							aLi[i].className = 'nav_con';
+							aDiv[i].className = 'action';
+						}
+						_this.className = 'nav_con active';
+						aDiv[_this.index].className = 'action on';
+						if(this.index ==0){
+							act1Movein('onmouseover');
+						}else{
+							act1Movein('onmouseout');
+						}
+						if(this.index ==1){
+							act2Movein('onmouseover');
+						}else{
+							act2Movein('onmouseout');
+						}
+						if(this.index ==2){
+							act3Movein('onmouseover');
+						}else{
+							act3Movein('onmouseout');
+						}
+						if(this.index ==3){
+							act4Movein('onmouseover');
+						}else{
+							act4Movein('onmouseout');
+						}
+					},500);
+				};
+				aLi[i].onmouseout=function (){
+					clearTimeout(Btimer);
+					
+				};
+			}
+			
+		})();
+	};
+</script>
+</head>
+
+<body>
+	<!--nav-->
+    <div id="nav" class="nav">
+    	<ul class="nav_list">
+        	<li class="nav_con">
+            	<h2>第一幕</h2>
+                <span>小智开启冒险之旅</span>
+            </li>
+            <li class="nav_con">
+            	<h2>第二幕</h2>
+                <span>火箭队登场</span>
+            </li>
+            <li class="nav_con">
+            	<h2>第三幕</h2>
+                <span>小智PK火箭队</span>
+            </li>
+            <li class="nav_con">
+            	<h2>第四幕</h2>
+                <span>KO火箭队小智继续旅程</span>
+            </li>
+        </ul>
+         <div class="nav_pic" id="nav_pic">
+             <img src="images/皮卡丘4.jpg"/>
+             <span>查看-><br/>小智之旅</span>
+       </div>
+    </div>
+   
+	<!--Action one-->
+    <div id="actone" class="action on">
+    	<div class="actone_bg">
+        	<img src="images/bg1.jpg"/>
+        </div>
+    	<h1 class="logo"><img src="images/logo.png"/></h1>
+        <p class="trends_tit">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <ul id="person_list" class="person_list">
+        	<li class="person">
+                <img src="images/xia.png"/>
+            </li>
+            <li class="person">
+                <img src="images/zhi1.png"/>
+            </li>
+            <li class="person">
+                <img src="images/mao1.png"/>
+            </li>
+        </ul>
+        <div class="small_mon">
+            <ul id="mon_list" class="mon_list">
+                <li class="mon pkq">
+                    <img src="images/bobi.png"/>
+                </li>
+                <li class="mon pkq">
+                    <img src="images/jiuwei.png"/>
+                </li>
+                <li class="mon pkq">
+                    <img src="images/jienigui.png"/>
+                </li>
+                <li class="mon pkq">
+                    <img src="images/pikaqiu.png"/>
+                </li>
+                <li class="mon pkq">
+                    <img src="images/penhuolong.png"/>
+                </li>
+                 <li class="mon pkq">
+                    <img src="images/kedaya.png"/>
+                </li>
+                 <li class="mon pkq">
+                    <img src="images/miaowazhongzi.png"/>
+                </li>
+            </ul>
+       	</div>
+        
+    </div>
+    <!--Action two-->
+    <div id="acttwo" class="action">
+    	<div class="acttwo_bg"> </div>
+        <div class="acttwo_con">
+        	<div class="acttwo_con_l fl">
+            	<p class="trends_tit2">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </div>
+            <div class="acttwo_con_r fr">
+                <div class="acttwo_pic1">
+                    <img src="images/huojiandui1.png"/>
+                </div>
+                 <div class="acttwo_pic2">
+                    <img src="images/huojiandui2.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!--Action three-->
+     <div id="actthree" class="action">
+     	<div class="bg_t">
+        	<div class="bg_t_bg"></div>
+            <div class="xz_pic"><span>靠你了，喷火龙！</span><img src="images/zhi2.png"/></div>
+            <div class="phl_pic"><img src="images/penhuolong2.png"/></div>
+            <div class="fire"><img src="images/fire.png"/></div>
+        </div>
+        <div class="bg_b">
+        	<div class="bg_b_bg" ></div>
+            <div class="bg_t_bg2"></div>
+            <div class="hjd"><img src="images/huojianduisui.png"/></div>
+            <p class="hjd_talk">我们一定会回来的，好讨厌的感觉！</p>
+        </div>
+        <p class="act3_tit">火箭队跟踪了小智他们很久，决定今天动手将皮卡丘占为己有，被小智发现，对决一触即发！</p>
+     </div>
+     <!--Action four-->
+     <div class="action " id="actfour" style="background:#019e23;">
+     	<div class="act4_logo">未完待续，敬请期待！</div>
+       <div  class="pkq_list">
+            <div class="act4_pkq one"><span>PiKa Pi!</span><img src="images/pikaqiu1.png"/></div>
+            <div class="act4_pkq two"><span>Pi Ka Qiu!</span><img src="images/pikaqiu2.png"/></div>
+            <div class="act4_pkq three"><span>PiKa PiKa!</span><img src="images/pikaqiu3.png"/></div>
+            <div class="act4_pkq four"><span>PiKa Pi!</span><img src="images/pikaqiu4.png"/></div>
+       </div>
+        <div class="wrap"  id="wrap">
+            <div id="div1"></div>
+            <div id="div2">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+       		 </div>
+        </div>
+     </div>
+</body>
+</html>
