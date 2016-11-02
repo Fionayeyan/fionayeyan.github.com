@@ -4,7 +4,7 @@ $(function(){
     $('#fullpage').fullpage({
         'verticalCentered': false,
         'css3': true,
-		'sectionsColor': ['#fff', '#fff', '#fff', 'fff','#fff'],
+		'sectionsColor': ['#fff', '#fff', '#fff', '#fff','#fff'],
         'anchors': ['section1', 'section2', 'section3', 'section4','section5'],
         'navigation': true,
         'navigationPosition': 'right',

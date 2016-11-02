@@ -84,7 +84,7 @@
 			color: #fff;
 		}
 		.section3 #tagscloud{
-			margin:-40px auto;
+			margin:-10px auto;
 		}
 		.section3 .tech_l_tit, .section3 .tech_r_tit {
 			font-size: 12px;
@@ -142,9 +142,10 @@
 		}
 		.section4 .sec_tit {
 			height: 32px;
-			font-size: 48px;
-			left: 25px;
-			margin-top:55px;
+			font-size: 45px;
+			left: 41px;
+			top: 188px;
+			margin-top: 64px;
 		}
 		.con_list div {
 			margin: -10px 42px;
@@ -165,15 +166,18 @@
 			left: 200px;
 			top: 248px;
 		}
+		.work_des .sec4_con {
+			top: 0;
+		}
 		.sec5_tit .content_list {
 			left: 0;
-			top: 100px;
+			top: 60px;
 			font-size: 24px;
 			color: #fff;
 		}
 		.sec5_tit {
 			left: 14px;
-			top: 350px;
+			top: 462px;
 		}
 		.sec5_tit h1 {
 			font-size: 35px;
@@ -184,6 +188,7 @@
 		}
 		.section5 .iconfont {
 		   font-size: 25px;
+		   color:#fff;
 		}
 		.square_list {
 			position: absolute;

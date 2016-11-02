@@ -294,3 +294,15 @@ td.button a img{border:none;}
 	font-weight:bold;
 
 	}
+.marquee td {
+	color:#FFF;
+}
+.marquee {
+	 width: 820px;
+	 height:135px;
+	 overflow:hidden;
+ }
+ 
+ .pop_box:hover{
+ cursor:pointer;
+ }
